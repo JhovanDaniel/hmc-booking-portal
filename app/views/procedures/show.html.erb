@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row justify-content-md-center mt-4">
+      <div class="col col-lg-10">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="display-6">Procedure: <%= @procedure.name %></h3>
+          </div>
+          <div class="card-body">
+            <div class="row ">
+              <div class="col-sm">  
+                <b><p> Type:</p></b>
+                <p class="text-muted"><%= @procedure.procedure_type %></p>
+              </div>
+              
+              <div class="col-sm">  
+                <b><p> Cost:</p></b>
+                <p class="text-muted"><%= @procedure.cost %></p>
+              </div>
+            </div>
+          </div>
+          <!-- Card footer -->
+        <div class="card-footer">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <%= link_to 'Edit Procedure Details', edit_procedure_path(@procedure) %>
+            </div>
+            
+            <div class="col-auto">
+              <%= link_to 'Delete Procedure', procedure_path(@procedure, method: :delete, data:{confirm: "Are you sure?"}),  class:'text-danger' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

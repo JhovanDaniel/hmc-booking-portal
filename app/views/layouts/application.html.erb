@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <title>TaxpayerRegister</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="antialiased d-flex flex-column h-100">
+    <div class="wrapper">
+      <% if current_user %>
+        <%= render 'shared/user_navbar' %>
+      <% else %>
+        <%= render 'shared/navbar' %>
+      <% end %>
+      <%= render 'shared/alerts' %>
+          <div class="page-wrapper">
+            <div class="page-body ">
+              <div class="container-xl">
+                <%= yield %>
+              </div><!--/.container-xl-->
+            </div><!--/.page-body-->
+          </div><!--/.page-wrapper-->
+        </div><!--/.wrapper-->
+      <%= render 'shared/footer' %>
+    </body>
+</html>

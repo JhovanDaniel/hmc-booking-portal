@@ -1,0 +1,16 @@
+<%= simple_form_for(@payment) do |f| %>
+
+  <h3>Appointment Information</h3>
+  <div class="form-inputs">
+    <%= f.input :amount %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :card_number %>
+    <%= f.input :card_expiry %>
+    <%= f.input :cvv, label: 'CVV' %>
+  </div>
+
+  <div class="form-actions mt-2">
+    <%= f.button :submit %>
+  </div>
+<% end %>

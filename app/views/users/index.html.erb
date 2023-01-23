@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row justify-content-md-center mt-4">
+      <div class="col col-lg-10">
+        <div class="card">
+          <div class="card-body">
+            <h1 class='display-6 mb-4'>All Users</h1>
+          </div>
+          <div class="table-responsive">
+            <table class="table card-table table-vcenter text-nowrap datatable">
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                  <th>Access level</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td><%=user.first_name %> </td>
+                    <td><%=user.last_name %> </td>
+                    <td><%=user.email %> </td>
+                    <td><%=user.role %> </td>
+                    <td class="text-end">
+                      <span class="dropdown">
+                        <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            Action
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            Another action
+                          </a>
+                        </div>
+                      </span>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

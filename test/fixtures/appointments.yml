@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  date_of_birth: 2023-01-19
+  gender: MyString
+  phone: MyString
+  email: MyString
+  procedure_type: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  date_of_birth: 2023-01-19
+  gender: MyString
+  phone: MyString
+  email: MyString
+  procedure_type: MyString

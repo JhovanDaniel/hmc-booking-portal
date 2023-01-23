@@ -1,0 +1,41 @@
+@import "@tabler/core/dist/css/tabler";
+
+
+:root {
+  --blue: #00004d;
+  --white: #ffffff;
+  --peach: #ff9d00;
+}
+
+.accent-bg {
+  background-color: var(--blue);
+}
+
+.heading-text{
+  font-size: 1.4em;
+  color: var(--blue);
+}
+
+hr.peach-hr {
+  border-top: 8px solid var(--peach);
+}
+
+.page-heading{
+  font-size: 2.5em;
+}
+
+
+.rounded-corner{
+  border-radius: 2%;
+}
+
+.service-card{
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 2em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.white-text{
+  color: white;
+}
