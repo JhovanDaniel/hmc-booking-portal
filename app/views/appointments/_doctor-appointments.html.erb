@@ -29,7 +29,11 @@
               <%= link_to 'Assign Doctor', assign_doctor_appointment_path(appointment), class:'dropdown-item' %>
             <% end %>
             <% if current_user.doctor? %>
-              <%= link_to 'Add Results', '#', class:'dropdown-item' %>
+              <% if appointment.result %>
+                <%= link_to 'Edit Results', edit_result_path(appointment.result, appointment_id: appointment), class:'dropdown-item' %>
+              <% else %>
+                <%= link_to 'Add Results', new_result_path(appointment_id: appointment), class:'dropdown-item' %>
+              <% end %>
             <% end %>
           </div>
         </span>

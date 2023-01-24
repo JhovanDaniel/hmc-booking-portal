@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
         @appointment = Appointment.new(appointment_params)
         if @appointment.save(validate: false)
             flash[:notice] = "Appointment was created successfully."
-            redirect_to new_payment_path
+            redirect_to appointments_path
         else
            render 'new' 
         end
@@ -27,7 +27,7 @@ class AppointmentsController < ApplicationController
     
     def update
       if @appointment.update(appointment_params)
-        flash[:notice] = "Appointment was created successfully."
+        flash[:notice] = "Appointment was updated successfully."
         redirect_to appointment_path(@appointment)
       else
         render 'edit', appointment: @appointment

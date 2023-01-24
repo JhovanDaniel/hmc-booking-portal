@@ -38,4 +38,5 @@ Rails.application.routes.draw do
   
   resources :procedures
   resources :payments
+  resources :results
 end

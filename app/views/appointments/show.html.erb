@@ -70,7 +70,28 @@
                 </div>
               <% end %>
             </div>
+            
+            <% if @appointment.result %>
+              <h2> Result Information </h2>
+              <div class="row ">
+                <div class="col-sm">  
+                  <b><p> Result date:</p></b>
+                  <p class="text-muted"><%= @appointment.result.result_date.strftime("%Y-%m-%d") %></p>
+                </div>
+                
+                <div class="col-sm">  
+                  <b><p> Results Outcome:</p></b>
+                  <p class="text-muted"><%= @appointment.result.result_outcome %></p>
+                </div>
+                
+                <div class="col-sm">  
+                  <b><p> Comments:</p></b>
+                  <p class="text-muted"><%= @appointment.result.comments %></p>
+                </div>
+              </div>
+            <% end %>
           </div>
+          
           <!-- Card footer -->
         <div class="card-footer">
           <div class="row align-items-center">
@@ -84,9 +105,13 @@
               </div>
             <% end %>
             
-            <% if @appointment.user == current_user%>
+            <% if !@appointment.result%>
               <div class="col-auto">
-                <%= link_to 'Add Results', '#' %>
+                <%= link_to 'Add Results', new_result_path(appointment_id: @appointment) %>
+              </div>
+            <% else %>
+              <div class="col-auto">
+                <%= link_to 'Edit Results', edit_result_path(@appointment.result, appointment_id: @appointment) %>
               </div>
             <% end %>
             
