@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  has_many :appointments
+         
   enum role: [:admin, :doctor, :lab_tech, :nurse, :front_desk]
   
   def name
@@ -12,6 +14,10 @@ class User < ApplicationRecord
   
   def initials
     "#{first_name.first}#{last_name.first}".upcase 
+  end
+  
+  def self.doctors
+    self.where(role: 1)
   end
   
 end

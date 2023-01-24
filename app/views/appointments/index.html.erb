@@ -10,45 +10,21 @@
               <thead>
                 <tr>
                   <th>Booked At</th>
-                  <th>Appointment Number</th>
+                  <th>Appointment No.</th>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Date</th>
                   <th>Time</th>
                   <th>Procedure</th>
+                  <th>Doctor</th>
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
-                <% @appointments.each do |appointment| %>
-                  <tr>
-                    <td><%=appointment.created_at.strftime("%Y-%m-%d %H:%M") %> </td>
-                    <td><%=appointment.appointment_number %> </td>
-                    <td><%=appointment.first_name %> </td>
-                    <td><%=appointment.last_name %> </td>
-                    <td><%=appointment.date %> </td>
-                    <td><%=appointment.time.strftime("%H:%M") %> </td>
-                    <% if appointment.procedure %>
-                      <td><%=appointment.procedure.name %> </td>
-                    <% else %>
-                      <td></td>
-                    <% end %>
-                    <td class="text-end">
-                      <span class="dropdown">
-                        <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                        <div class="dropdown-menu dropdown-menu-end">
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                        </div>
-                      </span>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
+              <% if current_user.doctor? %>
+                <%= render 'doctor-appointments' %>
+              <% else %>
+                <%= render 'all-appointments' %>
+              <% end %>
             </table>
           </div>
         </div>

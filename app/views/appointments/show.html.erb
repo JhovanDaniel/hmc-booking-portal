@@ -62,6 +62,13 @@
                 <b><p> Created at:</p></b>
                 <p class="text-muted"><%= @appointment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
               </div>
+              
+              <% if @appointment.user %>
+                <div class="col-sm">  
+                  <b><p> Doctor:</p></b>
+                  <p class="text-muted"><%= @appointment.user.name %></p>
+                </div>
+              <% end %>
             </div>
           </div>
           <!-- Card footer -->
@@ -70,6 +77,18 @@
             <div class="col-auto">
               <%= link_to 'Edit Appointment Details', edit_appointment_path(@appointment) %>
             </div>
+            
+            <% if !@appointment.user %>
+              <div class="col-auto">
+                <%= link_to 'Assign Doctor', assign_doctor_appointment_path(@appointment) %>
+              </div>
+            <% end %>
+            
+            <% if @appointment.user == current_user%>
+              <div class="col-auto">
+                <%= link_to 'Add Results', '#' %>
+              </div>
+            <% end %>
             
             <div class="col-auto">
               <%= link_to 'Delete Appointment', appointment_path(@appointment, method: :delete, data:{confirm: "Are you sure?"}),  class:'text-danger' %>

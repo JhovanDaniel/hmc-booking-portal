@@ -29,7 +29,13 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'pages#home'
   
-  resources :appointments
+  resources :appointments do
+    member do
+      get 'assign_doctor'
+    end
+  end
+  
+  
   resources :procedures
   resources :payments
 end
