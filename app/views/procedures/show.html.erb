@@ -1,36 +1,89 @@
-<div class="container">
-    <div class="row justify-content-md-center mt-4">
-      <div class="col col-lg-10">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="display-6">Procedure: <%= @procedure.name %></h3>
-          </div>
-          <div class="card-body">
-            <div class="row ">
-              <div class="col-sm">  
-                <b><p> Type:</p></b>
-                <p class="text-muted"><%= @procedure.procedure_type %></p>
+<% if current_user %>
+  <div class="container">
+      <div class="row justify-content-md-center mt-4">
+        <div class="col col-lg-10">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="display-6">Procedure: <%= @procedure.name %></h3>
+            </div>
+            <div class="card-body">
+              <div class="row ">
+                <div class="col-sm">  
+                  <b><p> Type:</p></b>
+                  <p class="text-muted"><%= @procedure.procedure_type %></p>
+                </div>
+                
+                <div class="col-sm">  
+                  <b><p> Cost:</p></b>
+                  <p class="text-muted"><%= @procedure.cost %></p>
+                </div>
+              </div>
+            </div>
+            <!-- Card footer -->
+          <div class="card-footer">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <%= link_to 'Edit Procedure Details', edit_procedure_path(@procedure) %>
               </div>
               
-              <div class="col-sm">  
-                <b><p> Cost:</p></b>
-                <p class="text-muted"><%= @procedure.cost %></p>
+              <div class="col-auto">
+                <%= link_to 'Delete Procedure', procedure_path(@procedure, method: :delete, data:{confirm: "Are you sure?"}),  class:'text-danger' %>
               </div>
-            </div>
-          </div>
-          <!-- Card footer -->
-        <div class="card-footer">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <%= link_to 'Edit Procedure Details', edit_procedure_path(@procedure) %>
-            </div>
-            
-            <div class="col-auto">
-              <%= link_to 'Delete Procedure', procedure_path(@procedure, method: :delete, data:{confirm: "Are you sure?"}),  class:'text-danger' %>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  
+<% else %>
+
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col col-lg-8">
+        <h1 class='page-heading peach-underline'><%=  @procedure.name %></h1>
+        <p class='heading-text my-4'>Acute infection usually flares up quickly and may require immediate medical attention. 
+        This can be anxiety-provoking and difficult to manage, alongside the stresses of everyday life. With the 
+        right treatment and care given by a specialist, symptoms can be relieved and managed before they become worse. 
+        With Midland Health, you can book an urgent appointment online by sending us an email or over the phone and be seen
+        the same day. A friendly GP will provide you with advice or treatment to get you back on your feet as quickly as possible</p>
+        <p class='heading-text'>The most common types of acute infection are: </p>
+        <h3> Viral Infections</h3>
+        <h3> Bacterial Infections</h3>
+        
+        <div class="page-section">
+          <h1 class='page-heading peach-underline'>Pricing</h1>
+          
+          <div class='col col-sm-4'>
+            <div class="card my-4 shadow-lg rounded-corner">
+              <div class="card-body">
+                <h1 class='peach-underline mt-4'> Standard GP Consultation</h1>
+                <h1 class='page-heading my-4'>$<%= @procedure.cost %></h1>
+                <%= link_to 'Book Now', new_appointment_path(procedure_id: @procedure), class:'btn btn-lg accent-bg white-text mb-4' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col col-lg-1">
+        
+      </div>
+      
+      <div class="col col-lg-3">
+          <div class="card">
+            <table>
+              <% @procedure.find_procedure_by_type.each do |procedure| %>
+                <tr class='accent-bg'>
+                  <td class='p-2 px-4'> <h1 class='white-text'><%= link_to procedure.name, procedure_path(procedure), class:'card-text' %></h1></td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+          </div>
+          
+          
+      </div>
+    </div>
+  </div>
+<% end %>

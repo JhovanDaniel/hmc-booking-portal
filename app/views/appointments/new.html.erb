@@ -1,14 +1,8 @@
 <div class="container">
-    <div class="row justify-content-md-center mt-4">
-        <div class="col col-lg-10">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class='display-6 mb-4'>Book an appointment</h1>
-                    
-                    <%= render 'appointments/form' %>
-
-                </div>
-            </div>
-        </div>
+  <div class="row justify-content-md-center my-4">
+    <div class="col col-lg-6">
+      <h1 class='display-6 mb-4'>Booking <% if params[:procedure_id] %> <%= Procedure.find(params[:procedure_id]).name %> <% end %> Appointment</h1>
+      <%= render 'appointments/form' %>
     </div>
+  </div>
 </div>

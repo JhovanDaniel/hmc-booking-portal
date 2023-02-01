@@ -19,7 +19,9 @@
           <%= link_to 'Assign Doctor', assign_doctor_appointment_path(appointment), class:'badge bg-danger' %>
         <% end %>
       </td>
-      <td class="text-end">
+      
+      <!---------- Actions --------->
+      <td>
         <span class="dropdown">
           <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
           <div class="dropdown-menu dropdown-menu-end">
@@ -27,13 +29,6 @@
             <%= link_to 'Edit', edit_appointment_path(appointment), class:'dropdown-item' %>
             <% if !appointment.user %>
               <%= link_to 'Assign Doctor', assign_doctor_appointment_path(appointment), class:'dropdown-item' %>
-            <% end %>
-            <% if current_user.doctor? %>
-              <% if appointment.result %>
-                <%= link_to 'Edit Results', edit_result_path(appointment.result, appointment_id: appointment), class:'dropdown-item' %>
-              <% else %>
-                <%= link_to 'Add Results', new_result_path(appointment_id: appointment), class:'dropdown-item' %>
-              <% end %>
             <% end %>
           </div>
         </span>

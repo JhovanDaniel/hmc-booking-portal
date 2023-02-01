@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_143027) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_01_141202) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_143027) do
     t.time "time"
     t.string "appointment_number"
     t.integer "procedure_id"
-    t.integer "payment_id"
     t.integer "user_id"
   end
 
@@ -40,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_143027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "amount"
+    t.integer "appointment_id"
   end
 
   create_table "procedures", force: :cascade do |t|
@@ -57,6 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_143027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "appointment_id"
+    t.boolean "approval_status"
+    t.integer "approved_by"
   end
 
   create_table "users", force: :cascade do |t|

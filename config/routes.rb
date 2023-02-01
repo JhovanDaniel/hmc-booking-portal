@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :appointment do
+    get 'steps/show'
+    get 'steps/update'
+  end
   get 'users/index'
   get 'users/show'
   
@@ -30,6 +34,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   
   resources :appointments do
+    resources :steps, only: [:show, :update], controller: 'appointment/steps'
+    
     member do
       get 'assign_doctor'
     end
@@ -38,5 +44,5 @@ Rails.application.routes.draw do
   
   resources :procedures
   resources :payments
-  resources :results
+  
 end

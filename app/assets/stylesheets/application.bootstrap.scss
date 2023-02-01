@@ -2,13 +2,21 @@
 
 
 :root {
-  --blue: #00004d;
-  --white: #ffffff;
-  --peach: #ff9d00;
+  --blue: #1A202C;
+  --peach: #f8b791;
+}
+
+.card-text:hover{
+  text-decoration: none !important;
 }
 
 .accent-bg {
   background-color: var(--blue);
+}
+.accent-bg:hover {
+  background-color: var(--peach);
+  color: white;
+  text-decoration: none;
 }
 
 .heading-text{
@@ -16,17 +24,25 @@
   color: var(--blue);
 }
 
-hr.peach-hr {
-  border-top: 8px solid var(--peach);
-}
 
 .page-heading{
   font-size: 2.5em;
 }
+.peach-underline{
+  padding-bottom: 0.75em;
+  border-bottom-style: solid;
+  border-bottom-width: 0.15em;
+  border-color: var(--peach);
+}
+
+.page-section{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 
 
 .rounded-corner{
-  border-radius: 2%;
+  border-radius: 2em !important;
 }
 
 .service-card{
@@ -34,6 +50,10 @@ hr.peach-hr {
   margin-right: 2em;
   margin-top: 2em;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.under-heading{
+  border-bottom: 8px solid var(--peach);
 }
 
 .white-text{

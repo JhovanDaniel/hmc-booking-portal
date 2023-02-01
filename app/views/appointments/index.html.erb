@@ -1,32 +1,31 @@
 <div class="container">
-  <div class="row justify-content-md-center mt-4">
-      <div class="col col-lg-10">
-        <div class="card">
-          <div class="card-body">
-            <h1 class='display-6 mb-4'>All appointments</h1>
-          </div>
-          <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap datatable">
-              <thead>
-                <tr>
-                  <th>Booked At</th>
-                  <th>Appointment No.</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Procedure</th>
-                  <th>Doctor</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <% if current_user.doctor? %>
-                <%= render 'doctor-appointments' %>
-              <% else %>
-                <%= render 'all-appointments' %>
-              <% end %>
-            </table>
-          </div>
+  <div class="row justify-content-md-center my-4">
+    <div class="col col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h1 class='display-6 mb-4'>All appointments</h1>
+        </div>
+        <div class="table-responsive">
+          <table class="table card-table table-striped table-vcenter text-nowrap datatable">
+            <thead>
+              <tr>
+                <th>Booked At</th>
+                <th>Appointment No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Procedure</th>
+                <th>Doctor</th>
+                <th></th>
+              </tr>
+            </thead>
+            <% if current_user.doctor? %>
+              <%= render 'doctor-appointments' %>
+            <% else %>
+              <%= render 'all-appointments' %>
+            <% end %>
+          </table>
         </div>
       </div>
     </div>

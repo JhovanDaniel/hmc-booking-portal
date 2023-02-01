@@ -1,28 +1,31 @@
 <div class="row mt-4">
-  <div class="col-lg-6">
+  <div class="col-lg-5">
     <h1 class='page-heading'>Welcome to</h1>
-    <h1 class='page-heading'>Hughes Medical Center</h1>
-    <hr class="peach-hr">
-    <p class='lead heading-text'>Hughes Medical is an innovative Private GP practice based in South Hil committed
-    to providing you and your family with easy access to the highest quality care. Offering a personalised service
-    which considers all aspects of wellbeing including mental health, lifestyle and nutrition, Hughes Medical is a
-    private medical centre that aims to support everyone to live a happier, healthier life.
-    </p>
-    <%= link_to 'Book an appointment', new_appointment_path, class:'btn btn-lg btn-primary accent-bg' %>
+    <h1 class='page-heading peach-underline'>Hughes Medical Center</h1>
+    
+      <p class='lead heading-text py-3'>Hughes Medical is an innovative Private GP practice based in South Hil committed
+      to providing you and your family with easy access to the highest quality care. Offering a personalised service
+      which considers all aspects of wellbeing including mental health, lifestyle and nutrition, Hughes Medical is a
+      private medical centre that aims to support everyone to live a happier, healthier life.
+      </p>
+      
+    <%= link_to 'Book a GP Consultation', new_appointment_path(procedure_id: 9), class:'btn btn-lg btn-primary accent-bg' %>
+  </div>
+  <div class="col-lg-1">
+    
   </div>
   <div class="col-lg-6">
     <img class='mt-2 shadow-lg' src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80" alt="Avatar">
   </div>
-</div></br><br>
+</div>
 
-<div class="row row-deck row-cards mt-4">
+<div class="row row-deck row-cards page-section">
   <div class="col-sm-6 col-lg-4">
     <div class="card service-card" style="width: 18rem;">
       <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
       <div class="card-body">
-        <h2>Privtate GP Services</h2>
-        <hr>
-        <p class="card-text">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+        <h2 class='peach-underline'>Privtate GP Services</h2>
+        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
       </div>
       <%= link_to '#', class:'card-footer accent-bg text-center' do %>
         <span class='white-text text-center'>Discover our Private Services</span>
@@ -34,9 +37,8 @@
     <div class="card service-card" style="width: 18rem;">
       <img src="https://images.unsplash.com/photo-1582719367079-bc1b8e5fed9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
       <div class="card-body">
-        <h2>Tests & Diagnostics</h2>
-        <hr>
-        <p class="card-text">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+        <h2 class='peach-underline'>Tests & Diagnostics</h2>
+        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
       </div>
       <%= link_to '#', class:'card-footer accent-bg text-center' do %>
         <span class='white-text text-center'>See our Testing & Diagnostics</span>
@@ -48,9 +50,8 @@
     <div class="card service-card" style="width: 18rem;">
       <img src="https://images.unsplash.com/photo-1631941618536-2979d565b726?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
       <div class="card-body">
-        <h2>Vaccinations</h2>
-        <hr>
-        <p class="card-text">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+        <h2 class='peach-underline'>Vaccinations</h2>
+        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
       </div>
       <%= link_to '#', class:'card-footer accent-bg text-center' do %>
         <span class='white-text text-center'>See our Vaccination Services</span>
@@ -62,9 +63,8 @@
     <div class="card service-card" style="width: 18rem;">
       <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
       <div class="card-body">
-        <h2>Surgery </h2>
-        <hr>
-        <p class="card-text">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+        <h2 class='peach-underline'>Surgery </h2>
+        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
       </div>
       <%= link_to '#', class:'card-footer accent-bg text-center' do %>
         <span class='white-text text-center'>Discover our Surgery Services</span>
@@ -75,10 +75,9 @@
   <div class="col-sm-6 col-lg-4">
     <div class="card service-card" style="width: 18rem;">
       <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h2>Specialist Services </h2>
-        <hr>
-        <p class="card-text">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+      <div class="card-body ">
+        <h2 class='peach-underline'>Specialist Services </h2>
+        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
       </div>
       <%= link_to '#', class:'card-footer accent-bg text-center' do %>
         <span class='white-text text-center'>Get Specialized Help</span>
@@ -87,12 +86,11 @@
   </div>
   
   <div class="col-sm-6 col-lg-4">
-    <div class="card service-card" style="width: 18rem;">
+    <div class="card service-card rounded-corner" style="width: 18rem;">
       <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80" class="card-img-top" alt="...">
       <div class="card-body">
-        <h2>Contact Us </h2>
-        <hr>
-        <p class="card-text">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+        <h2 class='peach-underline'>Contact Us </h2>
+        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
       </div>
       <%= link_to '#', class:'card-footer accent-bg text-center' do %>
         <span class='white-text text-center'>See our Details</span>
@@ -100,25 +98,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<div> <%= link_to 'New Appointment', new_appointment_path %></div>
-<div> <%= link_to 'All Appointment', appointments_path %></div>
-<div> <%= link_to 'View Appointment', appointment_path(1) %></div>
-<br><br>
-<div> <%= link_to 'New Procedure', new_procedure_path %></div>
-<div> <%= link_to 'All Procedures', procedures_path %></div>
-<div> <%= link_to 'View Procedure', procedure_path(4) %></div>
-<br><br>
-<div> <%= link_to 'All Payments', procedure_path(4) %></div>
-<div> <%= link_to 'View Payment', procedure_path(4) %></div>

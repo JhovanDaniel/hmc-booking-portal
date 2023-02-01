@@ -1,23 +1,19 @@
 <div class="container">
-    <div class="row justify-content-md-center mt-4">
-        <div class="col col-lg-10">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class='display-6 mb-4'>Add results</h1>
-                    
-                    <%= simple_form_for(@result) do |f| %>
-                      <div class="form-inputs">
-                        <%= f.input :result_date %>
-                        <%= f.input :result_outcome %>
-                        <%= f.input :comments %>
-                      </div>
-                    
-                      <div class="form-actions mt-2">
-                        <%= f.button :submit %>
-                      </div>
-                    <% end %>
-                </div>
-            </div>
+  <div class="row justify-content-md-center my-4">
+    <div class="col col-lg-10">
+      <h1 class='display-6 mb-4'>Add results</h1>
+      
+      <%= simple_form_for(@result) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :result_date %>
+          <%= f.input :result_outcome %>
+          <%= f.input :comments %>
         </div>
+      
+        <div class="form-actions mt-2">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
     </div>
+  </div>
 </div>

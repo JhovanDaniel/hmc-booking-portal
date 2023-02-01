@@ -10,8 +10,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="antialiased d-flex flex-column h-100">
-    <div class="wrapper">
+  <body class="antialiased h-100 d-flex flex-column">
+    <div class="wrapper bg-white">
       <% if current_user %>
         <%= render 'shared/user_navbar' %>
       <% else %>
@@ -26,6 +26,6 @@
             </div><!--/.page-body-->
           </div><!--/.page-wrapper-->
         </div><!--/.wrapper-->
-      <%= render 'shared/footer' %>
     </body>
+    <%= render 'shared/footer' %>
 </html>

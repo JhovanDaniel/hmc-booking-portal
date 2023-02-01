@@ -1,0 +1,17 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="steps steps-counter">
+      <a href="#" class="step-item">
+        Appointment Information
+      </a>
+      <a href="#" class="step-item">
+        Review
+      </a>
+      <a href="#" class="step-item active">
+        Pay
+      </a>
+    </div>
+  </div>
+</div>
+
+<%= render 'payments/form', payment: Payment.new, appointment: @appointment %>
