@@ -1,12 +1,12 @@
 <tbody>
   <% @appointments.each do |appointment| %>
     <tr>
-      <td><%=appointment.created_at.strftime("%Y-%m-%d %H:%M") %> </td>
+      <td><%=format_date(appointment.created_at) %> </td>
       <td><%=appointment.appointment_number %> </td>
       <td><%=appointment.first_name %> </td>
       <td><%=appointment.last_name %> </td>
-      <td><%=appointment.date %> </td>
-      <td><%=appointment.time.strftime("%H:%M") %> </td>
+      <td><%=format_date(appointment.date) %> </td>
+      <td><%=format_time(appointment.time) %> </td>
       <% if appointment.procedure %>
         <td><%=appointment.procedure.name %> </td>
       <% else %>

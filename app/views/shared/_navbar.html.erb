@@ -8,13 +8,13 @@
       <span style="padding-left: 10px;">Hughes Medical Centre</span>
     <% end %>
     <div class="navbar-nav flex-row order-md-last">
-      
+      <p class='navbar-brand'> appointments@hughesmedical.com <br><br> 268 581 2234</p>
     </div>
   </div>
 </header>
   
 <!--------- Second level navbar -------->  
-<div class="navbar-expand-md">
+<div class="navbar-expand-md nav-shadow">
   <div class="collapse navbar-collapse" id="navbar-menu">
     <div class="navbar navbar-light">
       <div class="container-xl justify-content-md-center">
@@ -58,7 +58,7 @@
               </span>
             </a>
             <div class="dropdown-menu">
-              <% Procedure.find_general_procedures.each do |procedure| %>
+              <% Procedure.find_procedure_by_type(0).each do |procedure| %>
                 <%= link_to procedure.name, procedure_path(procedure), class:'dropdown-item' %>
               <% end %>
             </div>
@@ -76,10 +76,9 @@
               </span>
             </a>
             <div class="dropdown-menu">
-              <%= link_to 'Chicken Pox Vaccine', '#', class:'dropdown-item' %>
-              <%= link_to 'Flu Vaccine', '#', class:'dropdown-item' %>
-              <%= link_to 'Measels Vaccine', '#', class:'dropdown-item' %>
-              <%= link_to 'Polio Vaccine', '#', class:'dropdown-item' %>
+              <% Procedure.find_procedure_by_type(1).each do |procedure| %>
+                <%= link_to procedure.name, procedure_path(procedure), class:'dropdown-item' %>
+              <% end %>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -95,10 +94,9 @@
               </span>
             </a>
             <div class="dropdown-menu">
-              <%= link_to 'Covid-19 Test', '#', class:'dropdown-item' %>
-              <%= link_to 'Food Intolerance', '#', class:'dropdown-item' %>
-              <%= link_to 'Cancer Testing', '#', class:'dropdown-item' %>
-              <%= link_to 'Blood Profiles', '#', class:'dropdown-item' %>
+              <% Procedure.find_procedure_by_type(2).each do |procedure| %>
+                <%= link_to procedure.name, procedure_path(procedure), class:'dropdown-item' %>
+              <% end %>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -112,10 +110,9 @@
              </span>
             </a>
             <div class="dropdown-menu">
-              <%= link_to 'Breast Augmentation', '#', class:'dropdown-item' %>
-              <%= link_to 'Facelift', '#', class:'dropdown-item' %>
-              <%= link_to 'Neck Rejuvenation', '#', class:'dropdown-item' %>
-              <%= link_to 'Labiaplasty', '#', class:'dropdown-item' %>
+              <% Procedure.find_procedure_by_type(3).each do |procedure| %>
+                <%= link_to procedure.name, procedure_path(procedure), class:'dropdown-item' %>
+              <% end %>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -132,10 +129,9 @@
              </span>
             </a>
             <div class="dropdown-menu">
-              <%= link_to 'Surgical Arts', '#', class:'dropdown-item' %>
-              <%= link_to 'Eye Examination', '#', class:'dropdown-item' %>
-              <%= link_to 'ENT Specialist', '#', class:'dropdown-item' %>
-              <%= link_to 'Dermatology', '#', class:'dropdown-item' %>
+              <% Procedure.find_procedure_by_type(4).each do |procedure| %>
+                <%= link_to procedure.name, procedure_path(procedure), class:'dropdown-item' %>
+              <% end %>
             </div>
           </li>
         </ul>

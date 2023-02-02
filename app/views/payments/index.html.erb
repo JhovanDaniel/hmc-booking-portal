@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row justify-content-md-center mt-4">
+      <div class="col col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h1 class='display-6 mb-4'>All Payments</h1>
+          </div>
+          <div class="table-responsive">
+            <table class="table card-table table-vcenter text-nowrap datatable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Appointment</th>
+                  <th>Amount</th>
+                  <th>Procedure</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @payments.each do |payment| %>
+                  <tr>
+                    <td><%=payment.appointment.booked_by %> </td>
+                    <td><%= link_to payment.appointment.appointment_number, appointment_path(payment.appointment) %> </td>
+                    <td><%=payment.amount %> </td>
+                    <td><%=payment.appointment.procedure.name %> </td>
+                    <td class="text-end">
+                      <span class="dropdown">
+                        <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">
+                            Action
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            Another action
+                          </a>
+                        </div>
+                      </span>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

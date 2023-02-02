@@ -18,6 +18,10 @@ class PaymentsController < ApplicationController
     end
   end
   
+  def index
+    @payments = Payment.all
+  end
+  
   def show
   end
   

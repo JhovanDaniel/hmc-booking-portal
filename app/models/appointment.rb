@@ -9,6 +9,8 @@ class Appointment < ApplicationRecord
       %w[appointment_information review pay]
     end
     
+    enum status: [:active, :inactive, :cancelled]
+    
     attr_accessor :appointment_step
     
     validates :first_name, :last_name, :date_of_birth, :gender, :phone, :email, :date, :time, :procedure_id, presence: true,
@@ -20,8 +22,49 @@ class Appointment < ApplicationRecord
       end while self.class.exists?(appointment_number: appointment_number)
     end
     
+    def self.active
+      self.where(status: self.statuses[:active])
+    end
+    
+    def self.cancelled
+      self.where(status: self.statuses[:cancelled])
+    end
+    
     def appointment_cost
       self.procedure.cost
+    end
+    
+    def booked_by
+      "#{first_name} #{last_name}"
+    end
+    
+    
+    def is_today?
+      format_date(self.date) == format_date(Date.today)
+    end
+  
+    def is_before_today?
+      format_date(self.date) < format_date(Date.today)
+    end
+  
+    def is_after_today?
+      format_date(self.date) > format_date(Date.today)
+    end
+    
+    def self.is_today_count
+      self.where(date: Date.today).count
+    end
+  
+    def self.is_after_today_count
+      self.where('date > ?', Date.today).count
+    end
+  
+    def self.is_before_today_count
+      self.where('date < ?', Date.today).count
+    end
+    
+    def self.general_count
+      self.General.count
     end
     
     private
