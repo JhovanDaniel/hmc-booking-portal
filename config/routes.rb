@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  concern :with_datatable do
+    post 'datatable', on: :collection
+  end
+  
   namespace :appointment do
     get 'steps/show'
     get 'steps/update'
@@ -22,7 +27,7 @@ Rails.application.routes.draw do
   end
   
   
-  resources :users, except: [:destroy]
+  resources :users, except: [:destroy], concerns: [:with_datatable]
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -30,16 +35,17 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'pages#home'
   
-  resources :appointments do
+  resources :appointments, concerns: [:with_datatable] do
     resources :steps, only: [:show, :update], controller: 'appointment/steps'
     
     member do
       get 'assign_doctor'
+      get 'cancel'
     end
   end
   
   
-  resources :procedures
-  resources :payments
+  resources :procedures, concerns: [:with_datatable]
+  resources :payments, concerns: [:with_datatable]
   
 end

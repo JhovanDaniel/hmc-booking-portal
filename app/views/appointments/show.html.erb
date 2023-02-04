@@ -1,87 +1,101 @@
 <div class="container">
     <div class="row justify-content-md-center mt-4">
       <div class="col col-lg-10">
-          <h3 class="display-6">Appointment: <%= @appointment.appointment_number %></h3>
-          <h2> Patient Information </h2>
-          <div class="row ">
-            <div class="col-sm">  
-              <b><p> First name:</p></b>
-              <p class="text-muted"><%= @appointment.first_name %></p>
-            </div>
-            
-            <div class="col-sm">  
-              <b><p> Last name:</p></b>
-              <p class="text-muted"><%= @appointment.last_name %></p>
-            </div>
+        <h3 class="display-6">Appointment: <%= @appointment.appointment_number %></h3>
+        <h2> Patient Information </h2>
+        <div class="row ">
+          <div class="col-sm">  
+            <b><p> First name:</p></b>
+            <p class="text-muted"><%= @appointment.first_name %></p>
           </div>
           
-          <div class="row ">
-            <div class="col-sm">  
-              <b><p> Gender:</p></b>
-              <p class="text-muted"><%= @appointment.gender %></p>
-            </div>
-            
-            <div class="col-sm">  
-              <b><p> Date of birth:</p></b>
-              <p class="text-muted"><%= @appointment.date_of_birth %></p>
-            </div>
-            
-            <div class="col-sm">  
-              <b><p> Email:</p></b>
-              <p class="text-muted"><%= @appointment.email %></p>
-            </div>
-            
-            <div class="col-sm">  
-              <b><p> Phone:</p></b>
-              <p class="text-muted"><%= @appointment.phone %></p>
-            </div>
+          <div class="col-sm">  
+            <b><p> Last name:</p></b>
+            <p class="text-muted"><%= @appointment.last_name %></p>
+          </div>
+        </div>
+        
+        <div class="row ">
+          <div class="col-sm">  
+            <b><p> Gender:</p></b>
+            <p class="text-muted"><%= @appointment.gender %></p>
           </div>
           
-          <h2> Appointment Information </h2>
-          <div class="row ">
-            <div class="col-sm">  
-              <b><p> Apointment date:</p></b>
-              <p class="text-muted"><%= @appointment.date.strftime("%Y-%m-%d") %></p>
-            </div>
-            
-            <div class="col-sm">  
-              <b><p> Apointment time:</p></b>
-              <p class="text-muted"><%= @appointment.time.strftime("%H:%M") %></p>
-            </div>
-            
-            <div class="col-sm">  
-              <b><p> Procedure:</p></b>
-              <p class="text-muted"><%= @appointment.procedure ? @appointment.procedure.name : "Nothing yet" %></p>
-            </div>
-            
-            <div class="col-sm">  
-              <b><p> Created at:</p></b>
-              <p class="text-muted"><%= @appointment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-            </div>
-            
-            <% if @appointment.user %>
-              <div class="col-sm">  
-                <b><p> Doctor:</p></b>
-                <p class="text-muted"><%= @appointment.user.name %></p>
-              </div>
-            <% end %>
-          </div>
-
-          <!-- Card footer -->
-        <div class="row my-4">
-          <div class="col-auto">
-            <%= link_to 'Edit Appointment Details', edit_appointment_path(@appointment) %>
+          <div class="col-sm">  
+            <b><p> Date of birth:</p></b>
+            <p class="text-muted"><%= @appointment.date_of_birth %></p>
           </div>
           
-          <% if !@appointment.user %>
-            <div class="col-auto">
-              <%= link_to 'Assign Doctor', assign_doctor_appointment_path(@appointment) %>
+          <div class="col-sm">  
+            <b><p> Email:</p></b>
+            <p class="text-muted"><%= @appointment.email %></p>
+          </div>
+          
+          <div class="col-sm">  
+            <b><p> Phone:</p></b>
+            <p class="text-muted"><%= @appointment.phone %></p>
+          </div>
+        </div>
+        
+        <h2> Appointment Information </h2>
+        <div class="row ">
+          <div class="col-sm">  
+            <b><p> Apointment date:</p></b>
+            <p class="text-muted"><%= @appointment.date.strftime("%Y-%m-%d") %></p>
+          </div>
+          
+          <div class="col-sm">  
+            <b><p> Apointment time:</p></b>
+            <p class="text-muted"><%= @appointment.time.strftime("%H:%M") %></p>
+          </div>
+          
+          <div class="col-sm">  
+            <b><p> Procedure:</p></b>
+            <p class="text-muted"><%= @appointment.procedure ? @appointment.procedure.name : "Nothing yet" %></p>
+          </div>
+          
+          <div class="col-sm">  
+            <b><p> Created at:</p></b>
+            <p class="text-muted"><%= @appointment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+          </div>
+          
+          <% if @appointment.user %>
+            <div class="col-sm">  
+              <b><p> Doctor:</p></b>
+              <p class="text-muted"><%= @appointment.user.name %></p>
             </div>
           <% end %>
-          
+        </div>
+
+        <!-- Card footer -->
+      <div class="row my-4">
+        <div class="col-auto">
+          <%= link_to 'Edit Appointment Details', edit_appointment_path(@appointment) %>
+        </div>
+        
+        <div class="col-auto">
+          <%= link_to 'View Payment', payment_path(@appointment.payment) %>
+        </div>
+        
+        <% if !@appointment.user %>
           <div class="col-auto">
-            <b><%= link_to 'Delete Appointment', appointment_path(@appointment, method: :delete, data:{confirm: "Are you sure?"}),  class:'text-danger' %></b>
+            <%= link_to 'Assign Doctor', assign_doctor_appointment_path(@appointment) %>
           </div>
+        <% end %>
+        
+        <% if @appointment.status == 'active' %>
+          <div class="col-auto">
+            <%= link_to 'Cancel Appointment', cancel_appointment_path(:appointment_id => @appointment.id), data: { confirm: "Are you sure?" } %>
+          </div>
+        <% else %>
+        <div class="col-auto">
+          <%= link_to 'Reverse Cancellation', cancel_appointment_path(:appointment_id => @appointment.id), data: { confirm: "Are you sure?" } %>
+        </div>
+        <% end %>
+          
+        
+        <div class="col-auto">
+          <b><%= link_to 'Delete Appointment', appointment_path(@appointment, method: :delete, data:{confirm: "Are you sure?"}),  class:'text-danger' %></b>
         </div>
       </div>
     </div>

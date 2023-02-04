@@ -2,6 +2,12 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
-
 import $ from 'jquery'
+import * as datatables from 'datatables.net-bs5'
+
+require('./user-datatable')
+require('./procedure-datatable')
+require('./appointment-datatable')
+require('./payment-datatable')
+
 global.$ = jQuery;

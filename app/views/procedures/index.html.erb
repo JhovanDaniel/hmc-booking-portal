@@ -6,7 +6,7 @@
             <h1 class='display-6 mb-4'>All Procedures</h1>
           </div>
           <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap datatable">
+            <table id="procedure-datatable" class="table table-vcenter card-table table-striped text-nowrap center" data-source="<%= datatable_procedures_path(format: :json) %>" style='width:100%;'>
               <thead>
                 <tr>
                   <th>Name</th>

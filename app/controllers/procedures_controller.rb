@@ -36,6 +36,13 @@ class ProceduresController < ApplicationController
   def edit
   end
   
+  def datatable
+    respond_to do |format|
+      format.html
+      format.json { render json: ProcedureDatatable.new(params, view_context: view_context) }
+    end
+  end
+  
   private
     
     def procedure_params

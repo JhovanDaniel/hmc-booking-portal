@@ -6,7 +6,7 @@
             <h1 class='display-6 mb-4'>All Payments</h1>
           </div>
           <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap datatable">
+            <table id="payment-datatable" class="table table-vcenter card-table table-striped text-nowrap center" data-source="<%= datatable_payments_path(format: :json) %>" style='width:100%;'>
               <thead>
                 <tr>
                   <th>Name</th>
@@ -17,27 +17,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @payments.each do |payment| %>
-                  <tr>
-                    <td><%=payment.appointment.booked_by %> </td>
-                    <td><%= link_to payment.appointment.appointment_number, appointment_path(payment.appointment) %> </td>
-                    <td><%=payment.amount %> </td>
-                    <td><%=payment.appointment.procedure.name %> </td>
-                    <td class="text-end">
-                      <span class="dropdown">
-                        <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                        <div class="dropdown-menu dropdown-menu-end">
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                        </div>
-                      </span>
-                    </td>
-                  </tr>
-                <% end %>
+                
               </tbody>
             </table>
           </div>

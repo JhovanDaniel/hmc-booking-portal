@@ -73,7 +73,7 @@
       <div class="col col-lg-3">
           <div class="card">
             <table>
-              <% @procedure.find_procedure_by_type.each do |procedure| %>
+              <% Procedure.find_procedure_by_type(@procedure.procedure_type).each do |procedure| %>
                 <tr class='accent-bg'>
                   <td class='p-2 px-4'> <h1 class='white-text'><%= link_to procedure.name, procedure_path(procedure), class:'card-text' %></h1></td>
                 </tr>

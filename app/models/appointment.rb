@@ -22,6 +22,10 @@ class Appointment < ApplicationRecord
       end while self.class.exists?(appointment_number: appointment_number)
     end
     
+    def name
+      "#{first_name} #{last_name}"
+    end
+    
     def self.active
       self.where(status: self.statuses[:active])
     end

@@ -25,6 +25,13 @@ class PaymentsController < ApplicationController
   def show
   end
   
+  def datatable
+    respond_to do |format|
+      format.html
+      format.json { render json: PaymentDatatable.new(params, view_context: view_context) }
+    end
+  end
+  
   private
     
   def payment_params

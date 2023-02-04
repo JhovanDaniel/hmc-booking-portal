@@ -1,4 +1,54 @@
 <div class="container">
+  
+  <div class="row row-cards my-4">
+    <div class="col-md-6 col-xl-3">
+      <div class="card card-sm">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <span class="bg-blue text-white avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+                  <line x1="13" y1="8" x2="15" y2="8" />
+                  <line x1="13" y1="12" x2="15" y2="12" />
+                </svg>
+              </span>
+            </div>
+            <div class="col">
+              <div class="font-weight-medium">
+                 <%= Appointment.active.count %>
+              </div>
+              <div class="text-muted">
+                Total Appointments
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--/.card-->
+    </div><!--/.col-->
+    
+    
+    <div class="col-md-auto col-xl-auto">
+      <div class="row align-items-center">
+        <div class="col-auto">
+        </div>
+        <div class="col">
+          <div class="font-weight-medium mb-2">
+            <% if current_page?(appointments_path(status: 'cancelled')) %>
+              <%= link_to 'Active Appointments', appointments_path, class:"btn btn-sm btn-secondary" %> 
+              <%= link_to 'Cancelled Appointments', appointments_path(status:'cancelled'), class:"btn btn-sm btn-primary" %>
+            <% else %>
+              <%= link_to 'Active Appointments', appointments_path, class:"btn btn-sm btn-primary" %> 
+              <%= link_to 'Cancelled Appointments', appointments_path(status:'cancelled'), class:"btn btn-sm btn-secondary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div><!--/.col-->
+  </div><!--/.row-->
+
+  
   <div class="row justify-content-md-center my-4">
     <div class="col col-lg-12">
       <div class="card">
@@ -6,7 +56,7 @@
           <h1 class='display-6 mb-4'>All appointments</h1>
         </div>
         <div class="table-responsive">
-          <table class="table card-table table-striped table-vcenter text-nowrap datatable">
+          <table id="appointment-datatable" class="table table-vcenter card-table table-striped text-nowrap datatable" data-source="<%= datatable_appointments_path(status: params[:status], format: :json) %>" style='width:100%;'>
             <thead>
               <tr>
                 <th>Booked At</th>
@@ -20,11 +70,9 @@
                 <th></th>
               </tr>
             </thead>
-            <% if current_user.doctor? %>
-              <%= render 'doctor-appointments' %>
-            <% else %>
-              <%= render 'all-appointments' %>
-            <% end %>
+            <tbody>
+              
+            </tbody>
           </table>
         </div>
       </div>
