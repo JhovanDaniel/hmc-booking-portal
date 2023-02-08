@@ -6,7 +6,7 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :date_of_birth %>
-    <%= f.input :gender %>
+    <%= f.input :gender, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: User::GENDER %>
     <%= f.input :phone %>
     <%= f.input :email %>
     <%= f.input :date %>

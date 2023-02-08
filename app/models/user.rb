@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  GENDER = ['Male', 'Female']
+         
   has_many :appointments
          
   enum role: [:admin, :doctor, :lab_tech, :nurse, :front_desk]

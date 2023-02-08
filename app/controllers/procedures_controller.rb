@@ -1,7 +1,7 @@
 class ProceduresController < ApplicationController
   
   skip_before_action :authenticate_user!, only: [:show]
-  before_action :set_procedure, only: [:show, :edit, :update, :destroy]
+  before_action :set_procedure, only: [:show, :edit, :update, :destroy, :show_timeslots]
   
   def index
     @procedures = Procedure.all
@@ -36,6 +36,10 @@ class ProceduresController < ApplicationController
   def edit
   end
   
+  def show_timeslots
+    
+  end
+  
   def datatable
     respond_to do |format|
       format.html
@@ -46,7 +50,7 @@ class ProceduresController < ApplicationController
   private
     
     def procedure_params
-       params.require(:procedure).permit(:name, :procedure_type, :cost)
+       params.require(:procedure).permit(:name, :procedure_type, :cost, :is_available)
     end
 
     def set_procedure

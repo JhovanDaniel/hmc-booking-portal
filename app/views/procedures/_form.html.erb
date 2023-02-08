@@ -7,6 +7,7 @@
     <%= f.input :name %>
     <%= f.input :cost %>
     <%= f.input :procedure_type, :collection   => Procedure.procedure_types.keys %>
+    <%= f.input :is_available %>
   </div>
 
   <div class="form-actions mt-2">

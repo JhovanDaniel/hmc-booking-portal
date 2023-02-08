@@ -6,15 +6,18 @@ class Appointment < ApplicationRecord
     before_create :generate_appointment_number
     
     cattr_accessor :appointment_steps do
-      %w[appointment_information review pay]
+      %w[appointment_information timeslots review pay]
     end
     
     enum status: [:active, :inactive, :cancelled]
     
     attr_accessor :appointment_step
     
-    validates :first_name, :last_name, :date_of_birth, :gender, :phone, :email, :date, :time, :procedure_id, presence: true,
+    validates :first_name, :last_name, :date_of_birth, :gender, :phone, :email, :procedure_id, presence: true,
       if: -> { required_appointment_step?(:appointment_information)}
+        
+    validates :time, :date, presence: true,
+    if: -> { required_appointment_step?(:timeslots)}
     
     def generate_appointment_number
       begin

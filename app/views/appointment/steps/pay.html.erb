@@ -1,8 +1,11 @@
-<div class="card mb-3">
+<div class="card my-4">
   <div class="card-body">
     <div class="steps steps-counter">
       <a href="#" class="step-item">
         Appointment Information
+      </a>
+      <a href="#" class="step-item">
+        Date and Time
       </a>
       <a href="#" class="step-item">
         Review
@@ -15,3 +18,7 @@
 </div>
 
 <%= render 'payments/form', payment: Payment.new, appointment: @appointment %>
+
+<div class="my-4">
+  <%= link_to 'Previous Step', previous_wizard_path, class: "btn" %>
+</div>

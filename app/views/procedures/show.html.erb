@@ -6,7 +6,7 @@
             <div class="card-header">
               <h3 class="display-6">Procedure: <%= @procedure.name %></h3>
             </div>
-            <div class="card-body">
+            <div class="card-body mb-4">
               <div class="row ">
                 <div class="col-sm">  
                   <b><p> Type:</p></b>
@@ -17,8 +17,52 @@
                   <b><p> Cost:</p></b>
                   <p class="text-muted"><%= @procedure.cost %></p>
                 </div>
+                
+                <div class="col-sm">  
+                  <b><p> Availability:</p></b>
+                  <% if @procedure.is_available %>
+                    <span class="badge badge-sm bg-success">Available</span>
+                  <% else %>
+                    <span class="badge badge-sm bg-danger">Unvailable</span>
+                  <% end %>
+                </div>
               </div>
+              
+              <!---- Time slots --->
+              <div class="row ">
+                <div class="col-sm">  
+                  <b><p> Times:</p></b>
+                </div>
+              </div>
+              
+              <% if @procedure.timeslots.count > 0 %>
+                <div class="row row-deck row-cards">
+                  <% @procedure.timeslots.each do |timeslot| %>
+                    <div class=" col-lg-3">
+                      <div class="card bg-light">
+                        <div class="card-body">
+                          <div class="">
+                            <p><b><%= timeslot.day %></b></p>
+                            <% timeslot.time.each do |t| %>
+                            <div class="row mb-1">
+                              <div class="col-auto my-auto">
+                                <span class=''><%= t %></span>
+                              </div>
+                            </div>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              <% else %>
+                <p> No procedure times yet. </p>
+              <% end %>
+              <!---- End time slots --->
             </div>
+            
+            
             <!-- Card footer -->
           <div class="card-footer">
             <div class="row align-items-center">
@@ -59,7 +103,16 @@
               <div class="card-body">
                 <h1 class='peach-underline mt-4'> Standard GP Consultation</h1>
                 <h1 class='page-heading my-4'>$<%= @procedure.cost %></h1>
-                <%= link_to 'Book Now', new_appointment_path(procedure_id: @procedure), class:'btn btn-lg accent-bg white-text mb-4' %>
+                
+                <% if @procedure.is_available %>
+                  <%= link_to 'Book Now', new_appointment_path(procedure_id: @procedure), class:'btn btn-lg accent-bg white-text mb-4' %>
+                <% else %>
+                  <p class='heading-text mb-0'> Service currently unavailable </p>
+                  <%= link_to 'Let me know when this service is available', '#', class:'small text-muted fw-bold' %>
+                <% end %>
+                
+                
+                
               </div>
             </div>
           </div>

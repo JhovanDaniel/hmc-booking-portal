@@ -18,6 +18,7 @@ class ProcedureDatatable < AjaxDatatablesRails::ActiveRecord
       name:               { source: "Procedure.name", cond: :like, searchable: true, orderable: true},
       procedure_type:          { source: "Procedure.procedure_type", cond: :like, searchable: true, orderable: true },
       cost:         { source: "Procedure.cost", cond: :like, searchable: true, orderable: true},
+      is_available:         { source: "Procedure.is_available", cond: :like, searchable: true, orderable: true},
       actions:        { source: "", searchable: false, orderable: false},
     }
   end
@@ -36,10 +37,17 @@ class ProcedureDatatable < AjaxDatatablesRails::ActiveRecord
         actions +=
         '</div>'
         
+        if record.is_available == true
+          available_html = '<span class="badge badge-sm bg-success">Available</span>'
+        else
+          available_html = '<span class="badge badge-sm bg-danger">Unvailable</span>'
+        end
+        
       {
         name:      record.name,
         procedure_type:  record.procedure_type,
         cost: record.cost,
+        is_available: available_html.html_safe,
         actions: actions.html_safe,
       }
     end

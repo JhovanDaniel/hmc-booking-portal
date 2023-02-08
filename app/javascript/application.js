@@ -11,3 +11,9 @@ require('./appointment-datatable')
 require('./payment-datatable')
 
 global.$ = jQuery;
+
+$(document).ready(function(){
+  $(".add_weight_fields").click(function(){
+    $("#weights").append($(this).data("field"));
+  });
+});

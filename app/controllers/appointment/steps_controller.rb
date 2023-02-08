@@ -23,7 +23,9 @@ class Appointment::StepsController < ApplicationController
   def appointment_params(step)
     permitted_attributes = case step
       when "appointment_information"
-        [:first_name, :last_name, :date_of_birth, :gender, :phone, :email, :time, :date, :procedure_id, :user_id]
+        [:first_name, :last_name, :date_of_birth, :gender, :phone, :email, :procedure_id, :user_id]
+      when "timeslots"
+        [:date, :time]
       end
     params.require(:appointment).permit(permitted_attributes).merge(appointment_step: step)
   end

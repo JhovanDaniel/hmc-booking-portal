@@ -16,6 +16,7 @@ document.addEventListener("turbo:load", () => {
       {"data": "name"},
       {"data": "procedure_type"},
       {"data": "cost"},
+      {"data": "is_available"},
       { "data": "actions", searchable: false, orderable: false },
 
     ], "dom": "<''<'card-body py-3 d-flex'<'text-muted'l><'ms-auto text-muted'f>>" +

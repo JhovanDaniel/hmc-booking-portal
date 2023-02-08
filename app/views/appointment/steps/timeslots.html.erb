@@ -1,0 +1,45 @@
+<div class="card my-4">
+  <div class="card-body">
+    <div class="steps steps-counter">
+      <a href="#" class="step-item">
+        Appointment Information
+      </a>
+      <a href="#" class="step-item active">
+        Date and Time
+      </a>
+      <a href="#" class="step-item">
+        Review
+      </a>
+      <a href="#" class="step-item">
+        Pay
+      </a>
+    </div>
+  </div>
+</div>
+
+<p>Please select a time from the following available dates.</p>
+
+<% @appointment.procedure.weeks_from_now.each do |w|%>
+  <% @appointment.procedure.timeslots.each do |timeslot| %>
+    <% if timeslot.day == w.strftime("%A") %>
+    <div class="card bg-light p-2 mb-2">
+    <div class="">
+      <p><b> <%= format_date2(w) %></b></p>
+      <% timeslot.time.each do |t| %>
+      <%= simple_form_for(@appointment, :url => wizard_path, method: :put, html: { style: "display: inline-block" }) do |f| %>
+              <%= f.input :date, as: :hidden, input_html: { value: w } %>
+              <%= f.input :time, as: :hidden, input_html: { value: t.to_time } %>
+
+              <%= f.submit "#{t}", 
+                  class: "btn btn"%>
+            <% end %>
+      <% end %>
+    </div>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class="form-actions mt-4">
+  <%= link_to 'Previous Step', previous_wizard_path, class: "btn" %>
+</div>

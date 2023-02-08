@@ -1,8 +1,11 @@
-<div class="card mb-3">
+<div class="card my-4">
   <div class="card-body">
     <div class="steps steps-counter">
       <a href="#" class="step-item">
         Appointment Information
+      </a>
+      <a href="#" class="step-item">
+        Date and Time
       </a>
       <a href="#" class="step-item active">
         Review
@@ -13,7 +16,6 @@
     </div>
   </div>
 </div>
-
 <%= simple_form_for(@appointment, :url => wizard_path, method: :put) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -41,7 +43,7 @@
     Procedure Cost: <strong>USD <%= @appointment.appointment_cost %></strong>
   </div>
   
-  <div class="form-actions mt-4">
+  <div class="form-actions my-4">
     <%= link_to 'Previous Step', previous_wizard_path, class: "btn" %>
     <%= link_to 'Next Step', next_wizard_path, class: "btn btn-primary" %>
   </div>

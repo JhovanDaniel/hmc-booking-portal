@@ -1,8 +1,11 @@
-<div class="card mb-3">
+<div class="card my-4">
   <div class="card-body">
     <div class="steps steps-counter">
       <a href="#" class="step-item active">
         Appointment Information
+      </a>
+      <a href="#" class="step-item">
+        Date and Time
       </a>
       <a href="#" class="step-item">
         Review
@@ -22,11 +25,9 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :date_of_birth %>
-    <%= f.input :gender %>
+    <%= f.input :gender, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: User::GENDER %>
     <%= f.input :phone %>
     <%= f.input :email %>
-    <%= f.input :date %>
-    <%= f.input :time %>
     
     <% if !@appointment.procedure_id %>
       <%= f.input :procedure_id, collection: Procedure.all %>
@@ -37,7 +38,7 @@
     <% end %>
   </div>
   
-  <div class="form-actions mt-2">
+  <div class="form-actions my-4">
     <%= f.button :submit, 'Next Step' %>
   </div>
 <% end %>

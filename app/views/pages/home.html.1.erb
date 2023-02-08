@@ -1,80 +1,25 @@
-<div class="justify-content-center text-left mt-4">
-  <div class="jumbotron bg-overlay">
-    <div class="col-lg-5" >
-      <div class="card glass-card mx-4">
-        <h1 class="display-4 fw-bold page-heading">Hughes</h1>
-        <h1 class="display-4 fw-bold page-heading blue-text">Medical Centre</h1>
-        
-        <p class="page-text">Welcome to Hughes Medical Centre, a private healthcare clinic with a wide range of services
-        and compassionate providers. Our services range from cosmetic and reconstructive surgeries, to ambulatory care and 
-        counselling.</p>
-        <div class="col-auto justify-content-center">
-          <%= link_to 'Book GP Appointment', new_appointment_path(procedure_id: 9), class:"btn btn-lg btn-light" %>
-        </div>
-        </div>
-    </div>
+<div class="row mt-4">
+  <div class="col-lg-5">
+    <h1 class='page-heading'>Welcome to</h1>
+    <h1 class='page-heading peach-underline'>Hughes Medical Center</h1>
+    
+      <p class='lead heading-text py-3'>Hughes Medical is an innovative Private GP practice based in South Hil committed
+      to providing you and your family with easy access to the highest quality care. Offering a personalised service
+      which considers all aspects of wellbeing including mental health, lifestyle and nutrition, Hughes Medical is a
+      private medical centre that aims to support everyone to live a happier, healthier life.
+      </p>
+      
+    <%= link_to 'Book a GP Consultation', new_appointment_path(procedure_id: 9), class:'btn btn-lg btn-primary accent-bg' %>
+  </div>
+  <div class="col-lg-1">
+    
+  </div>
+  <div class="col-lg-6">
+    <img class='mt-2 shadow-lg' src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80" alt="Avatar">
   </div>
 </div>
 
-  <div class="row d-flex justify-content-center welcome-neg-top mb-4"> <!--- Features card row -->
-
-    <div class="col-md-3 my-auto p-0">
-      <div class="card d-flex welcome-card blue-light-bg">
-        <div class="card-body align-items-center justify-content-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
-            <path d="M16 3l0 4"></path>
-            <path d="M8 3l0 4"></path>
-            <path d="M4 11l16 0"></path>
-            <path d="M10 16l4 0"></path>
-            <path d="M12 14l0 4"></path>
-          </svg>
-          <h1> Appointments </h1>
-          <p class='page-text'> Browse our catalog of service offerings, including routine checkups, various tests and screening. We specialize 
-          in surgeries, which include cosmetic and reconstructive surgeries. Our staff are always there to help.</p>
-        </div>
-      </div>
-    </div>
-    
-    
-    <div class="col-md-3 my-auto p-0">
-      <div class="card d-flex welcome-card blue-mid-bg">
-        <div class="card-body align-items-center justify-content-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cash" width="150%" height="150%" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M7 9m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"></path>
-            <path d="M14 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-            <path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"></path>
-          </svg>
-          <h1> Insurance Options </h1>
-          <p class='page-text'>We are proud to partner with major insurance providers on island to ensure that healthcare is more accessible for everyone.
-          Insurance policies we accept include Alliance,  Redbridge, Nagico and others.</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-md-3 my-auto p-0">
-      <div class="card d-flex welcome-card blue-darker-bg">
-        <div class="card-body align-items-center justify-content-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-hour-3" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-            <path d="M12 12h3.5"></path>
-            <path d="M12 7v5"></path>
-          </svg>
-          <h1> Opening Hours </h1>
-          <p class='page-text'>We are proud to partner with major insurance providers on island to ensure that healthcare is more accessible for everyone.
-          Insurance policies we accept include Alliance,  Redbridge, Nagico and others.</p>
-        </div>
-      </div>
-    </div>
-    
-  </div><br><br> <!--- end of card row --->
-  
-  <h1 class='display-6 fw-bold'>Our Services</h1>
-
-<div class="row row-deck row-cards page-section pt-0">
+<div class="row row-deck row-cards page-section">
   <div class="col-sm-6 col-lg-4">
     <div class="card service-card" style="width: 18rem;">
       <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">

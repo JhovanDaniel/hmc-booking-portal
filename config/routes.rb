@@ -45,7 +45,21 @@ Rails.application.routes.draw do
   end
   
   
-  resources :procedures, concerns: [:with_datatable]
+  resources :procedures, concerns: [:with_datatable] do
+    member do
+      get 'show_timeslots'
+    end
+  end
+  
+  
   resources :payments, concerns: [:with_datatable]
+    
+  
+  
+  resources :timeslots do
+    member do
+      get 'remove_time'
+    end 
+  end
   
 end

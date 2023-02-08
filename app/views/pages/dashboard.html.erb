@@ -7,7 +7,7 @@
           <h1> Appointments</h1>
           <p  class="text-primary mt-1"><%= format_date(Date.today) %></p>
           
-          <div class="row align-items-center my-4">
+          <div class="row align-items-center mt-4">
             <div class="col-auto">
               <span class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"></path><path d="M12 3v3m0 12v3"></path></svg>
@@ -24,6 +24,8 @@
             </div>
           </div>
           
+          <hr>
+          
           <div class="row row-cards">
             <div class="col-lg-6">
               <div class="row align-items-center">
@@ -34,7 +36,7 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    52
+                    <%= Procedure.where(procedure_type: 0).count %>
                   </div>
                   <div class="text-muted">
                     General Appointments
@@ -52,7 +54,7 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    78
+                    <%= Procedure.where(procedure_type: 1).count %>
                   </div>
                   <div class="text-muted">
                     Surgery Appointments
@@ -70,7 +72,7 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    62
+                    <%= Procedure.where(procedure_type: 2).count %>
                   </div>
                   <div class="text-muted">
                     Test Appointments
@@ -88,10 +90,28 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    32 
+                    <%= Procedure.where(procedure_type: 3).count %>
                   </div>
                   <div class="text-muted">
                     Vaccination Appointments
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-6">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <span class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path></svg>
+                  </span>
+                </div>
+                <div class="col">
+                  <div class="font-weight-medium">
+                    <%= Procedure.where(procedure_type: 4).count %>
+                  </div>
+                  <div class="text-muted">
+                    Specialist Appointments
                   </div>
                 </div>
               </div>
@@ -102,12 +122,12 @@
       </div>
       
       
-      <div class="col-lg-6">
-        <div class="card p-4">
-          <div class="card-body card-body-scrollable card-body-scrollable-shadow">
-            <h1> Recent Appointments</h1>
-            <p  class="text-primary mt-1">Showing recent appointments</p>
-              
+    <div class="col-lg-6">
+      <div class="card p-4">
+        <div class="card-body card-body-scrollable card-body-scrollable-shadow">
+          <h1> Recent Appointments</h1>
+          <p  class="text-primary mt-1">Showing recent appointments</p>
+            
         <div class="table-responsive">
           <table class="table table-sm table-borderless card-table table-vcenter text-nowrap datatable">
             <thead>
@@ -144,6 +164,7 @@
             </tbody>
           </table>
         </div>
+            <%= link_to "All appointments", appointments_path, class:'btn btn-primary mt-4' %>
         </div>
       </div>
       

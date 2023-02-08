@@ -45,6 +45,12 @@ class AppointmentDatatable < AjaxDatatablesRails::ActiveRecord
         actions +=
         '</div>'
         
+        if record.user
+          user_html = record.user.name
+        else
+          user_html = 'No assigned doctor'
+        end
+        
       {
         created_at: format_date(record.created_at),
         appointment_number: record.appointment_number,
@@ -53,7 +59,7 @@ class AppointmentDatatable < AjaxDatatablesRails::ActiveRecord
         date: format_date(record.date),
         time: format_time(record.time),
         procedure:  record.procedure.name,
-        user:  record.user.name,
+        user:  user_html.html_safe,
         actions: actions.html_safe,
       }
     end
