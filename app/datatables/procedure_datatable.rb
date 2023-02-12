@@ -40,7 +40,7 @@ class ProcedureDatatable < AjaxDatatablesRails::ActiveRecord
         if record.is_available == true
           available_html = '<span class="badge badge-sm bg-success">Available</span>'
         else
-          available_html = '<span class="badge badge-sm bg-danger">Unvailable</span>'
+          available_html = '<span class="badge badge-sm bg-danger">Unavailable</span>'
         end
         
       {

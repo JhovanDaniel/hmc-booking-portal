@@ -19,6 +19,11 @@
                 </div>
                 
                 <div class="col-sm">  
+                  <b><p> Booking limit:</p></b>
+                  <p class="text-muted"><%= @procedure.booking_limit %></p>
+                </div>
+                
+                <div class="col-sm">  
                   <b><p> Availability:</p></b>
                   <% if @procedure.is_available %>
                     <span class="badge badge-sm bg-success">Available</span>
@@ -37,13 +42,13 @@
               
               <% if @procedure.timeslots.count > 0 %>
                 <div class="row row-deck row-cards">
-                  <% @procedure.timeslots.each do |timeslot| %>
+                  <% @procedure.timeslots.order(:day).each do |timeslot| %>
                     <div class=" col-lg-3">
                       <div class="card bg-light">
                         <div class="card-body">
                           <div class="">
                             <p><b><%= timeslot.day %></b></p>
-                            <% timeslot.time.each do |t| %>
+                            <% timeslot.time.sort.each do |t| %>
                             <div class="row mb-1">
                               <div class="col-auto my-auto">
                                 <span class=''><%= t %></span>
@@ -120,22 +125,19 @@
       </div>
       
       <div class="col col-lg-1">
-        
+        <!--- Blank space, prob a better way -->
       </div>
       
       <div class="col col-lg-3">
-          <div class="card">
-            <table>
-              <% Procedure.find_procedure_by_type(@procedure.procedure_type).each do |procedure| %>
-                <tr class='accent-bg'>
-                  <td class='p-2 px-4'> <h1 class='white-text'><%= link_to procedure.name, procedure_path(procedure), class:'card-text' %></h1></td>
-                </tr>
-              <% end %>
-            </table>
-          </div>
-          </div>
-          
-          
+        <div class="">
+          <nav class="nav flex-column">
+            <% Procedure.find_procedure_by_type(@procedure.procedure_type).each do |procedure| %>
+              <%= link_to procedure.name, procedure_path(procedure), class:'h1 m-0 card-text nav-link accent-bg white-text' %>
+            <% end %>
+          </nav>
+        </div>
+      </div>
+        
       </div>
     </div>
   </div>

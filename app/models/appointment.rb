@@ -71,7 +71,23 @@ class Appointment < ApplicationRecord
     end
     
     def self.general_count
-      self.General.count
+      self.active.pluck(:procedure_id).count(Procedure.general)
+    end
+      
+    def self.vaccination_count
+      self.active.pluck(:procedure_id).count(Procedure.vaccination)
+    end
+    
+    def self.test_count
+      self.active.pluck(:procedure_id).count(Procedure.test)
+    end
+    
+    def self.surgery_count
+      self.active.pluck(:procedure_id).count(Procedure.surgery)
+    end
+    
+    def self.specialist_count
+      self.active.pluck(:procedure_id).count(Procedure.specialist)
     end
     
     private

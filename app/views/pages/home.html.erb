@@ -1,23 +1,23 @@
-<div class="justify-content-center text-left mt-4">
+<div class="justify-content-center text-left">
   <div class="jumbotron bg-overlay">
-    <div class="col-lg-5" >
+    <div class="col-lg-5 mt-4" >
       <div class="card glass-card mx-4">
-        <h1 class="display-4 fw-bold page-heading">Hughes</h1>
-        <h1 class="display-4 fw-bold page-heading blue-text">Medical Centre</h1>
+        <h1 class="page-heading-bold">Hughes</h1>
+        <h1 class="fw-bold page-heading blue-text">Medical Centre</h1>
         
-        <p class="page-text">Welcome to Hughes Medical Centre, a private healthcare clinic with a wide range of services
+        <p class="mb-0">Welcome to Hughes Medical Centre, a private healthcare clinic with a wide range of services
         and compassionate providers. Our services range from cosmetic and reconstructive surgeries, to ambulatory care and 
         counselling.</p>
         <div class="col-auto justify-content-center">
-          <%= link_to 'Book GP Appointment', new_appointment_path(procedure_id: 9), class:"btn btn-lg btn-light" %>
+          <%= link_to 'Book GP Appointment', new_appointment_path(procedure_id: 9), class:"btn btn btn-light" %>
         </div>
         </div>
     </div>
   </div>
 </div>
 
-  <div class="row d-flex justify-content-center welcome-neg-top mb-4"> <!--- Features card row -->
 
+  <div class="row d-flex justify-content-center welcome-neg-top mb-4"> <!--- Features card row -->
     <div class="col-md-3 my-auto p-0">
       <div class="card d-flex welcome-card blue-light-bg">
         <div class="card-body align-items-center justify-content-center">
@@ -72,84 +72,86 @@
     
   </div><br><br> <!--- end of card row --->
   
+<div class="container-xl">
   <h1 class='display-6 fw-bold'>Our Services</h1>
 
-<div class="row row-deck row-cards page-section pt-0">
-  <div class="col-sm-6 col-lg-4">
-    <div class="card service-card" style="width: 18rem;">
-      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h2 class='peach-underline'>Privtate GP Services</h2>
-        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+  <div class="row row-deck row-cards page-section pt-0">
+    <div class="col-sm-6 col-lg-4">
+      <div class="card service-card" style="width: 18rem;">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class='peach-underline'>Privtate GP Services</h2>
+          <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+        </div>
+        <%= link_to '#', class:'card-footer accent-bg text-center' do %>
+          <span class='white-text text-center'>Discover our Private Services</span>
+        <% end %>
       </div>
-      <%= link_to '#', class:'card-footer accent-bg text-center' do %>
-        <span class='white-text text-center'>Discover our Private Services</span>
-      <% end %>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-4">
-    <div class="card service-card" style="width: 18rem;">
-      <img src="https://images.unsplash.com/photo-1582719367079-bc1b8e5fed9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h2 class='peach-underline'>Tests & Diagnostics</h2>
-        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+    
+    <div class="col-sm-6 col-lg-4">
+      <div class="card service-card" style="width: 18rem;">
+        <img src="https://images.unsplash.com/photo-1582719367079-bc1b8e5fed9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class='peach-underline'>Tests & Diagnostics</h2>
+          <p class="card-text py-3">Midland Health offers all Pathology, Radiology and Diagnostics that you may require to help manage your condition.</p>
+        </div>
+        <%= link_to '#', class:'card-footer accent-bg text-center' do %>
+          <span class='white-text text-center'>See our Testing & Diagnostics</span>
+        <% end %>
       </div>
-      <%= link_to '#', class:'card-footer accent-bg text-center' do %>
-        <span class='white-text text-center'>See our Testing & Diagnostics</span>
-      <% end %>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-4">
-    <div class="card service-card" style="width: 18rem;">
-      <img src="https://images.unsplash.com/photo-1631941618536-2979d565b726?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h2 class='peach-underline'>Vaccinations</h2>
-        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+    
+    <div class="col-sm-6 col-lg-4">
+      <div class="card service-card" style="width: 18rem;">
+        <img src="https://images.unsplash.com/photo-1631941618536-2979d565b726?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class='peach-underline'>Vaccinations</h2>
+          <p class="card-text py-3">Our competent practitioners at our Private Vaccination Clinic have experience of working with adults and children, and we offer childhood immunisations as well as adult vaccinations for travel.</p>
+        </div>
+        <%= link_to '#', class:'card-footer accent-bg text-center' do %>
+          <span class='white-text text-center'>See our Vaccination Services</span>
+        <% end %>
       </div>
-      <%= link_to '#', class:'card-footer accent-bg text-center' do %>
-        <span class='white-text text-center'>See our Vaccination Services</span>
-      <% end %>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-4">
-    <div class="card service-card" style="width: 18rem;">
-      <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h2 class='peach-underline'>Surgery </h2>
-        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+    
+    <div class="col-sm-6 col-lg-4">
+      <div class="card service-card" style="width: 18rem;">
+        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class='peach-underline'>Surgery </h2>
+          <p class="card-text py-3">Midland Health provides a number of health check packages to suit a wide range of needs. Our experienced GP’s will provide lifestyle guidance and comprehensive healthcare advice, followed by a report.</p>
+        </div>
+        <%= link_to '#', class:'card-footer accent-bg text-center' do %>
+          <span class='white-text text-center'>Discover our Surgery Services</span>
+        <% end %>
       </div>
-      <%= link_to '#', class:'card-footer accent-bg text-center' do %>
-        <span class='white-text text-center'>Discover our Surgery Services</span>
-      <% end %>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-4">
-    <div class="card service-card" style="width: 18rem;">
-      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
-      <div class="card-body ">
-        <h2 class='peach-underline'>Specialist Services </h2>
-        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+    
+    <div class="col-sm-6 col-lg-4">
+      <div class="card service-card" style="width: 18rem;">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
+        <div class="card-body ">
+          <h2 class='peach-underline'>Specialist Services </h2>
+          <p class="card-text py-3">Midland Health provides specialist services for health needs at various life stages. Our experts will guide you whether your concern is about illness or employment/work medicals and travel.</p>
+        </div>
+        <%= link_to '#', class:'card-footer accent-bg text-center' do %>
+          <span class='white-text text-center'>Get Specialized Help</span>
+        <% end %>
       </div>
-      <%= link_to '#', class:'card-footer accent-bg text-center' do %>
-        <span class='white-text text-center'>Get Specialized Help</span>
-      <% end %>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-4">
-    <div class="card service-card rounded-corner" style="width: 18rem;">
-      <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h2 class='peach-underline'>Contact Us </h2>
-        <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
+    
+    <div class="col-sm-6 col-lg-4">
+      <div class="card service-card rounded-corner" style="width: 18rem;">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class='peach-underline'>Contact Us </h2>
+          <p class="card-text py-3">When visiting our clinic, please observe the national health and safety protocols and The following process.</p>
+        </div>
+        <%= link_to '#', class:'card-footer accent-bg text-center' do %>
+          <span class='white-text text-center'>See our Details</span>
+        <% end %>
       </div>
-      <%= link_to '#', class:'card-footer accent-bg text-center' do %>
-        <span class='white-text text-center'>See our Details</span>
-      <% end %>
     </div>
   </div>
 </div>

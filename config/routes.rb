@@ -62,4 +62,7 @@ Rails.application.routes.draw do
     end 
   end
   
+ get 'reports', to: 'pages#reports'
+
+  
 end
