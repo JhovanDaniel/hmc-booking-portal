@@ -70,6 +70,7 @@ class AppointmentsController < ApplicationController
     end
   end
   
+  
   private
   
   def appointment_params

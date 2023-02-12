@@ -6,8 +6,17 @@ class PagesController < ApplicationController
         
     end
     
-    def reports
-        
+  def reports
+    if params[:search].present? 
+      if params[:search][:report_type].present?
+        @report_type = params[:search][:report_type]
+      end
     end
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
     
 end

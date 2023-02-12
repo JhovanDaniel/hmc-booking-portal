@@ -57,12 +57,28 @@
                   </div>
             
                   <div class="mt-4">
-                    <%= simple_form_for :search, remote: true, url: appointments_path, method: :get do |f| %>
+                    <%= simple_form_for :search, remote: true, url: reports_path, method: :get, format: :js do |f| %>
                       <div class="row">
-                        <%= f.input :companies, collection: ['All data', 'Appointment by type', 'Appointment by doctor'], html5: true, label: 'Report type', hint: 'Please choose the desired report type' %>
-                        <%= f.button :submit, 'Generate report', class:'btn btn-primary mt-4' %>
+                        <div class="col-sm-8 my-auto">
+                          <%= f.input :report_type, collection: ['All data', 'Appointment by type', 'Appointment by doctor'], html5: true, label: 'Report type', hint: 'Please choose the desired report type' %>
+                        </div>
+                        <div class="col-sm-4 my-auto">
+                          <div class="small-3 columns">
+                            <%= button_tag type: 'submit', class: "btn btn-primary postfix" do %>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checkbox" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                 <path d="M9 11l3 3l8 -8"></path>
+                                 <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9"></path>
+                              </svg>
+                            <% end %>
+                          </div>
+                        </div>
                       </div>
                     <% end %>
+                  </div>
+                  
+                  <div id="appointment-report">
+                    
                   </div>
                   
                 </div>

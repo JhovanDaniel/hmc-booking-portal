@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   end
   
  get 'reports', to: 'pages#reports'
+ get 'appointment_report', to: 'appointments#reports'
 
   
 end
