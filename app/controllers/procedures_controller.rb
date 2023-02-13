@@ -26,7 +26,7 @@ class ProceduresController < ApplicationController
   
   def update
     if @procedure.update(procedure_params)
-      flash[:notice] = "Procedure was created successfully."
+      flash[:notice] = "Procedure was updated successfully."
       redirect_to procedure_path(@procedure)
     else
       render 'form', appointment: @procedure
@@ -50,7 +50,7 @@ class ProceduresController < ApplicationController
   private
     
     def procedure_params
-       params.require(:procedure).permit(:name, :procedure_type, :cost, :is_available, :booking_limit)
+       params.require(:procedure).permit(:name, :procedure_type, :cost, :is_available, :booking_limit, :start_date, :end_date)
     end
 
     def set_procedure

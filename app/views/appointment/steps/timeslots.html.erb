@@ -19,7 +19,7 @@
 
 <p>Please select a time from the following available dates.</p>
 
-<% @appointment.procedure.weeks_from_now.each do |w|%>
+<% @appointment.procedure.available_days.each do |w|%>
   <% @appointment.procedure.timeslots.each do |timeslot| %>
     <% if timeslot.day == w.strftime("%A") %>
     <div class="card bg-light p-2 mb-2">

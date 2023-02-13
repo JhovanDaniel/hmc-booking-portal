@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_11_220302) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_13_011721) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,8 +49,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_220302) do
     t.integer "procedure_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_available", default: true
     t.integer "booking_limit"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "is_available"
   end
 
   create_table "results", force: :cascade do |t|

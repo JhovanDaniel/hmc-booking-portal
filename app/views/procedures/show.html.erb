@@ -25,11 +25,23 @@
                 
                 <div class="col-sm">  
                   <b><p> Availability:</p></b>
-                  <% if @procedure.is_available %>
+                  <% if @procedure.is_available == 'Available' %>
                     <span class="badge badge-sm bg-success">Available</span>
+                  <% elsif @procedure.is_available == 'Always_available' %>
+                    <span class="badge badge-sm bg-success">Always available</span>
                   <% else %>
                     <span class="badge badge-sm bg-danger">Unvailable</span>
                   <% end %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm">  
+                  <b><p> Start date:</p></b>
+                  <p class="text-muted"><%= @procedure.start_date %></p>
+                </div>
+                <div class="col-sm">  
+                  <b><p> End date:</p></b>
+                  <p class="text-muted"><%= @procedure.end_date %></p>
                 </div>
               </div>
               
@@ -109,7 +121,7 @@
                 <h1 class='peach-underline mt-4'> Standard GP Consultation</h1>
                 <h1 class='page-heading my-4'>$<%= @procedure.cost %></h1>
                 
-                <% if @procedure.is_available %>
+                <% if @procedure.is_available != 'Not_available' %>
                   <%= link_to 'Book Now', new_appointment_path(procedure_id: @procedure), class:'btn btn-lg accent-bg white-text mb-4' %>
                 <% else %>
                   <p class='heading-text mb-0'> Service currently unavailable </p>

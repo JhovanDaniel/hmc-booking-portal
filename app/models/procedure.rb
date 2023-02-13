@@ -5,6 +5,7 @@ class Procedure < ApplicationRecord
   has_many :timeslots
     
     enum procedure_type: [:General, :Vaccination, :Test, :Surgery, :Specialist]
+    enum is_available: [:Available, :Always_available, :Not_available]
     
     validates :name, :cost, :procedure_type, presence: true;
     
@@ -17,11 +18,21 @@ class Procedure < ApplicationRecord
   end
   
   def today
-    Date.current
+    Date.current + 1
   end
   
-  def weeks_from_now
-    today.beginning_of_week..2.weeks.from_now
+  def available_days
+    if self.is_available == 'Always_available'
+      today..3.weeks.from_now 
+    else
+      ((self.start_date - self.end_date).to_i).abs > 21 ? self.start_date..3.weeks.from_now : self.start_date.. self.end_date
+    end
+  end
+  
+  def bookable(date, time)
+    date = format_date(date.to_date)
+    time = format_time(time.to_time)
+    Appointment.active.where(date: date, time: time).count < self.booking_limit
   end
   
   def self.general
@@ -44,10 +55,6 @@ class Procedure < ApplicationRecord
     self.where(procedure_type: 4).first.id
   end
   
-  def bookable(date, time)
-    date = format_date(date.to_date)
-    time = format_time(time.to_time)
-    Appointment.active.where(date: date, time: time).count < self.booking_limit
-  end
+  
   
 end

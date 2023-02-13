@@ -8,7 +8,9 @@
     <%= f.input :cost %>
     <%= f.input :procedure_type, :collection   => Procedure.procedure_types.keys %>
     <%= f.input :booking_limit%>
-    <%= f.input :is_available %>
+    <%= f.input :start_date, as: :date %>
+    <%= f.input :end_date, as: :date %>
+    <%= f.input :is_available, :collection   => Procedure.is_availables.keys %>
   </div>
 
   <div class="form-actions mt-2">
