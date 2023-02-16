@@ -70,24 +70,13 @@ class Appointment < ApplicationRecord
       self.where('date < ?', Date.today).count
     end
     
-    def self.general_count
-      self.active.pluck(:procedure_id).count(Procedure.general)
-    end
-      
-    def self.vaccination_count
-      self.active.pluck(:procedure_id).count(Procedure.vaccination)
+    def self.type_count(type)
+      self.active.joins(:procedure).where('procedures.procedure_type.key' => type).count
     end
     
-    def self.test_count
-      self.active.pluck(:procedure_id).count(Procedure.test)
-    end
-    
-    def self.surgery_count
-      self.active.pluck(:procedure_id).count(Procedure.surgery)
-    end
-    
-    def self.specialist_count
-      self.active.pluck(:procedure_id).count(Procedure.specialist)
+    def self.most_procedure(index)
+      max = self.active.group(:procedure_id).count.max_by(index){ |obj| obj[1]}
+      max[index-1] != nil ? max[index-1].first : nil
     end
     
     private

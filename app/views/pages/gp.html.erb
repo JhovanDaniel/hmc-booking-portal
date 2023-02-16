@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row d-flex mt-4">
+    <div class="col col-lg-6">
+      <h1 class='page-heading peach-underline'> GP Services </h1>
+      <p class='heading-text my-4'>Acute infection usually flares up quickly and may require immediate medical attention. 
+      This can be anxiety-provoking and difficult to manage, alongside the stresses of everyday life. With the 
+      right treatment and care given by a specialist, symptoms can be relieved and managed before they become worse. 
+      With Midland Health, you can book an urgent appointment online by sending us an email or over the phone and be seen
+      the same day. A friendly GP will provide you with advice or treatment to get you back on your feet as quickly as possible</p>
+      <p class='heading-text'>The most common types of acute infection are: </p>
+      <h3> Viral Infections</h3>
+      <h3> Bacterial Infections</h3>
+    </div>
+      
+    <div class="col col-lg-1">
+    <!--- Blank space, prob a better way -->
+    </div>
+      
+    <div class="col col-lg-5">
+      <img class="rounded-corner mt-4" alt="Image cap [100%x180]" src="https://midlandhealth.co.uk/wp-content/uploads/2022/05/Midland-Health-151-1-600x400.webp" data-holder-rendered="true" style="height: auto; width: 100%; display: block;">
+    </div>
+  </div>
+  
+  <div class="row d-flex my-4">
+    <div class="col col-lg-6">
+      <h1 class='page-heading peach-underline'>Booking A GP Consultation </h1>
+      <p class='heading-text my-4'>Acute infection usually flares up quickly and may require immediate medical attention. 
+      This can be anxiety-provoking and difficult to manage, alongside the stresses of everyday life. With the 
+      right treatment and care given by a specialist, symptoms can be relieved and managed before they become worse. 
+      With Midland Health, you can book an urgent appointment online by sending us an email or over the phone and be seen
+      the same day. A friendly GP will provide you with advice or treatment to get you back on your feet as quickly as possible</p>
+    </div>
+      
+    <div class="col col-lg-1">
+    <!--- Blank space, prob a better way -->
+    </div>
+      
+    <div class="col col-lg-5">
+      
+      <div class="" id="sidebar-menu">
+            <ul class="navbar-nav pt-lg-3">
+              <li class="nav-item accent-bg white-text p-2 nav-top-border">
+              </li>
+              <% Procedure.find_procedure_by_type(0).each do |procedure| %>
+              <li class="nav-item accent-bg white-text p-2">
+                <%= link_to procedure.name, procedure_path(procedure), class:"card-text white-text mx-2 dropdown-item" %>
+                </li>
+              <% end %>
+              <li class="nav-item dropdown accent-bg white-text p-2 nav-bottom-border">
+              </li>
+            </ul>
+          </div>
+    </div>
+  </div>
+</div>

@@ -3,12 +3,15 @@
 
 :root {
   --blue: #1A202C;
-  --light-blue: #657DAB;
-  --mid-blue: #36435C;
+  --light-blue: #262c37;
+  --mid-blue: #1f2531;
   --darker-blue: #1A202B;
   --peach: #f8b791;
 }
 
+a {
+  text-decoration: none;
+}
 
 .accent-bg {
   background-color: var(--blue);
@@ -20,7 +23,7 @@
 }
 
 .bg-overlay {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.36) 0,rgba(0,0,0,.60) 100%),url(https://hughesmedical.com/wp-content/uploads/2021/10/building2.jpg);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0,rgba(255,255,255,.3) 100%),url(https://hughesmedical.com/wp-content/uploads/2021/09/waiting.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -44,7 +47,7 @@
 }
 
 .card-text{
-  
+  font-size: 1rem;
 }
 .card-text:hover{
   text-decoration: none !important;
@@ -69,6 +72,16 @@
   backdrop-filter: blur(15px);
 }
 
+.nav-top-border {
+border-top-left-radius:30px;
+border-top-right-radius:30px;   
+}
+
+.nav-bottom-border {
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;  
+}
+
 
 .navbar-light {
     --tblr-navbar-border-color: none;
@@ -79,22 +92,21 @@
   box-shadow: 0px 1px 10px #999;
 }
 
+//p {
+//  font-size: 1.1rem;
+//}
+
 .page-heading{
   font-size: 3em;
   
 }.page-heading-bold{
   font-size: 3.5em;
   font-weight: 700;
-  margin-bottom: -0.3em;
 }
 
 .page-section{
   padding-top: 80px;
   padding-bottom: 80px;
-}
-
-.page-text{
-  font-size: 1rem;
 }
 
 .peach-underline{

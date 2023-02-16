@@ -50,7 +50,8 @@ class ProceduresController < ApplicationController
   private
     
     def procedure_params
-       params.require(:procedure).permit(:name, :procedure_type, :cost, :is_available, :booking_limit, :start_date, :end_date)
+       params.require(:procedure).permit(:name, :procedure_type, :cost, :is_available, :booking_limit, :start_date, :end_date,
+       :description, :details)
     end
 
     def set_procedure

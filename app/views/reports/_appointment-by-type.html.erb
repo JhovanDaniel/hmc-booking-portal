@@ -1,0 +1,8 @@
+<div class="card">
+  <div class="card-body">
+    <h3><b> <%= @report_type %>  </b></h3>
+    
+    <p class='my-2'> Total appointments from <%= format_date(@start_date.to_date) %> to <%= format_date(@end_date.to_date)%>: <b><%= Appointment.active.where(:date => @start_date.to_date.beginning_of_day..@end_date.to_date.end_of_day).count %></b></p>
+    <p> 2 General | 3 Surgery | 7 test | 2 Vaccination | 1 Specialist</p>
+  </div>
+</div>

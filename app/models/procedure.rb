@@ -17,6 +17,10 @@ class Procedure < ApplicationRecord
     self.where(procedure_type: procedure)
   end
   
+  def find_procedure_type
+    self.procedure_type
+  end
+  
   def today
     Date.current + 1
   end
@@ -35,8 +39,8 @@ class Procedure < ApplicationRecord
     Appointment.active.where(date: date, time: time).count < self.booking_limit
   end
   
-  def self.general
-    self.where(procedure_type: "General").first.id
+  def general
+    self.procedure_type == "General"
   end
   
   def self.vaccination

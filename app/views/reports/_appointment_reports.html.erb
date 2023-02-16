@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "appointment-reports" do %>
+  <% if defined?(@report_type) && defined?(@start_date) && defined?(@end_date) %>
+    <% if @report_type == 'Appointment Data' %>
+      <%= render "reports/appointment_data" %>
+    <% end %>
+    
+    <% if @report_type == 'Appointment by type' %>
+      <%= render "reports/appointment-by-type" %>
+    <% end %>
+  <% end %>
+<% end %>

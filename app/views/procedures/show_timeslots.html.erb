@@ -1,66 +1,77 @@
-<div class="row mt-4">
-  <div class="col-auto my-auto">
-    <h1 class="display-6"> Timeslots for <%= @procedure.name %> </h1>
-  </div>
-  <div class="col-auto my-auto">
-   <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new_timeslot">
-     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-record" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M21 12.3a9 9 0 1 0 -8.683 8.694"></path>
-        <path d="M12 7v5l2 2"></path>
-        <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-      </svg>
-      Add timeslot
-    </a>
-
-    <%= render 'procedures/modal', modal_id: "new_timeslot", timeslot: Timeslot.new %>
-    
-    
-  </div>
-</div>
-
-
-<div class="row row-deck row-cards my-4">
-  <% @procedure.timeslots.order(:day).each do |timeslot| %>
-    <div class="col-sm-6 col-lg-3">
-      <div class="card">
-        <div class="card-body">
-          <div class="">
-            <p><b><%= timeslot.day %></b></p><br>
-            <% timeslot.time.sort.each do |t| %>
-            <div class="row mb-1">
-              <div class="col-sm-4 my-auto">
-                <span class='btn'><%= t %></span>
+<div class="container">
+    <div class="row justify-content-md-center mt-4">
+      <div class="col col-lg-10">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mt-4">
+              <div class="col-auto my-auto">
+                <h1 class="display-6"> Timeslots for <%= @procedure.name %> </h1>
               </div>
-              <div class="col-sm-6 my-auto">
-                <span>
-                  <%= link_to remove_time_timeslot_path(timeslot, time_param: t), data: { turbo_confirm: "Are you sure?" } do %>
-                    <svg xmlns="http://www.w3.org/2000/svg" class=" badge badge-sm bg-danger p-0" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M18 6l-12 12"></path>
-                      <path d="M6 6l12 12"></path>
-                    </svg>
-                  <% end %>
-                </span>
+              <div class="col-auto my-auto">
+               <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new_timeslot">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-record" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M21 12.3a9 9 0 1 0 -8.683 8.694"></path>
+                    <path d="M12 7v5l2 2"></path>
+                    <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                  </svg>
+                  Add timeslot
+                </a>
+            
+                <%= render 'procedures/modal', modal_id: "new_timeslot", timeslot: Timeslot.new %>
+                
+                
               </div>
             </div>
-            <% end %>
+            
+            
+            <div class="row row-deck row-cards my-4">
+              <% @procedure.timeslots.order(:day).each do |timeslot| %>
+                <div class="col-sm-6 col-lg-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="">
+                        <p><b><%= timeslot.day %></b></p><br>
+                        <% timeslot.time.sort.each do |t| %>
+                        <div class="row mb-1">
+                          <div class="col-sm-4 my-auto">
+                            <span class='btn'><%= t %></span>
+                          </div>
+                          <div class="col-sm-6 my-auto">
+                            <span>
+                              <%= link_to remove_time_timeslot_path(timeslot, time_param: t), data: { turbo_confirm: "Are you sure?" } do %>
+                                <svg xmlns="http://www.w3.org/2000/svg" class=" badge badge-sm bg-danger p-0" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                  <path d="M18 6l-12 12"></path>
+                                  <path d="M6 6l12 12"></path>
+                                </svg>
+                              <% end %>
+                            </span>
+                          </div>
+                        </div>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#<%= "procedure-timeslot-#{timeslot.id}" %>">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-record" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                          <path d="M21 12.3a9 9 0 1 0 -8.683 8.694"></path>
+                          <path d="M12 7v5l2 2"></path>
+                          <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                        </svg>
+                        Add time
+                      </a>
+                      
+                      <%= render 'procedures/modal', modal_id: "procedure-timeslot-#{timeslot.id}", timeslot: timeslot %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#<%= "procedure-timeslot-#{timeslot.id}" %>">
-           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-record" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M21 12.3a9 9 0 1 0 -8.683 8.694"></path>
-              <path d="M12 7v5l2 2"></path>
-              <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-            </svg>
-            Add time
-          </a>
-          
-          <%= render 'procedures/modal', modal_id: "procedure-timeslot-#{timeslot.id}", timeslot: timeslot %>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>

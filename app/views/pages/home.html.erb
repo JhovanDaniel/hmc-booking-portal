@@ -1,17 +1,19 @@
-<div class="justify-content-center text-left">
+<div class="justify-content-end text-left">
   <div class="jumbotron bg-overlay">
-    <div class="col-lg-5 mt-4" >
-      <div class="card glass-card mx-4">
-        <h1 class="page-heading-bold">Hughes</h1>
-        <h1 class="fw-bold page-heading blue-text">Medical Centre</h1>
-        
-        <p class="mb-0">Welcome to Hughes Medical Centre, a private healthcare clinic with a wide range of services
-        and compassionate providers. Our services range from cosmetic and reconstructive surgeries, to ambulatory care and 
-        counselling.</p>
-        <div class="col-auto justify-content-center">
-          <%= link_to 'Book GP Appointment', new_appointment_path(procedure_id: 9), class:"btn btn btn-light" %>
+    <div class="row d-flex">
+      <div class="col-lg-6 mt-4" style="padding-left:4em" >
+        <div class="glass-card">
+          <h1 class="page-heading-bold">Hughes</h1>
+          <h1 class="page-heading-bold my-3 blue-text">Medical Centre</h1>
+          
+          <p class="mb-0">Welcome to Hughes Medical Centre, a private healthcare clinic with a wide range of services
+          and compassionate providers. Our services range from cosmetic and reconstructive surgeries, to ambulatory care and 
+          counselling.</p>
+          <div class="col-auto justify-content-center">
+            <%= link_to 'Book GP Appointment', new_appointment_path(procedure_id: 9), class:"btn accent-bg white-text" %>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -31,7 +33,7 @@
             <path d="M12 14l0 4"></path>
           </svg>
           <h1> Appointments </h1>
-          <p class='page-text'> Browse our catalog of service offerings, including routine checkups, various tests and screening. We specialize 
+          <p> Browse our catalog of service offerings, including routine checkups, various tests and screening. We specialize 
           in surgeries, which include cosmetic and reconstructive surgeries. Our staff are always there to help.</p>
         </div>
       </div>
@@ -48,7 +50,7 @@
             <path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"></path>
           </svg>
           <h1> Insurance Options </h1>
-          <p class='page-text'>We are proud to partner with major insurance providers on island to ensure that healthcare is more accessible for everyone.
+          <p>We are proud to partner with major insurance providers on island to ensure that healthcare is more accessible for everyone.
           Insurance policies we accept include Alliance,  Redbridge, Nagico and others.</p>
         </div>
       </div>
@@ -64,7 +66,7 @@
             <path d="M12 7v5"></path>
           </svg>
           <h1> Opening Hours </h1>
-          <p class='page-text'>We are proud to partner with major insurance providers on island to ensure that healthcare is more accessible for everyone.
+          <p>We are proud to partner with major insurance providers on island to ensure that healthcare is more accessible for everyone.
           Insurance policies we accept include Alliance,  Redbridge, Nagico and others.</p>
         </div>
       </div>
@@ -83,7 +85,7 @@
           <h2 class='peach-underline'>Privtate GP Services</h2>
           <p class="card-text py-3">A Pay-As-You-Go same day GP service offering a range of consultations, vaccines and tests for you and your family.</p>
         </div>
-        <%= link_to '#', class:'card-footer accent-bg text-center' do %>
+        <%= link_to gp_path, class:'card-footer accent-bg text-center' do %>
           <span class='white-text text-center'>Discover our Private Services</span>
         <% end %>
       </div>

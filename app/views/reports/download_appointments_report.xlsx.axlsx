@@ -1,0 +1,8 @@
+work_book = xlsx_package.workbook
+work_book.add_worksheet(name: "Appointments") do |sheet|
+  sheet.add_row ["Appointment number", "Booked at", "First name", "Last name", "Date of birth", "Gender", "Date", "Time", "Procedure", "Doctor" ]
+  @appointments.each do |appointment|
+    sheet.add_row [appointment.appointment_number, appointment.created_at, appointment.first_name, appointment.last_name, appointment.date_of_birth, 
+    appointment.gender, appointment.date, appointment.time, appointment.procedure.name, appointment.user ? appointment.user.name : "No doctor"]
+  end
+end

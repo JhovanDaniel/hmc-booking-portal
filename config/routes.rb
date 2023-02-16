@@ -62,8 +62,9 @@ Rails.application.routes.draw do
     end 
   end
   
- get 'reports', to: 'pages#reports'
- get 'appointment_report', to: 'appointments#reports'
-
+ get 'reports/dashboard', to: 'reports#dashboard'
+ get 'update_report', to: 'reports#update_report'
+ get 'download_appointments_report', to: 'reports#download_appointments_report'
+ get 'gp', to: 'pages#gp'
   
 end

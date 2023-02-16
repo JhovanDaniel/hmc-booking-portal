@@ -50,7 +50,7 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    <%= Appointment.general_count %>
+                    <%= Appointment.type_count('General') %>
                   </div>
                   <div class="text-muted">
                     General Appointments
@@ -74,7 +74,7 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    <%= Appointment.surgery_count %>
+                    <%= Appointment.type_count('Surgery') %>
                   </div>
                   <div class="text-muted">
                     Surgery Appointments
@@ -101,7 +101,7 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    <%= Appointment.test_count %>
+                    <%= Appointment.type_count('Test') %>
                   </div>
                   <div class="text-muted">
                     Test Appointments
@@ -128,7 +128,7 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    <%= Appointment.vaccination_count %>
+                    <%= Appointment.type_count('Vaccination') %>
                   </div>
                   <div class="text-muted">
                     Vaccination Appointments
@@ -152,7 +152,7 @@
                 </div>
                 <div class="col">
                   <div class="font-weight-medium">
-                    <%= Appointment.specialist_count %>
+                    <%= Appointment.type_count('Specialist') %>
                   </div>
                   <div class="text-muted">
                     Specialist Appointments
@@ -185,7 +185,7 @@
             </thead>
             <tbody>
               <% if current_user.doctor? %>
-                <% current_user.appointments.active.last(5).reverse.each do |appointment| %>
+                <% current_user.appointments.active.last(10).reverse.each do |appointment| %>
                 <tr>
                   <td><%= link_to appointment.appointment_number, appointment_path(appointment) %> </td>
                   <td><%= format_date(appointment.created_at) %> </td>
@@ -195,7 +195,7 @@
                 </tr>
                 <% end %>
               <% else %>
-                <% Appointment.active.last(5).reverse.each do |appointment| %>
+                <% Appointment.active.last(10).reverse.each do |appointment| %>
                 <tr>
                   <td><%= link_to appointment.appointment_number, appointment_path(appointment) %> </td>
                   <td><%= format_date(appointment.created_at) %> </td>

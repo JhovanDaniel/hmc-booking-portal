@@ -38,6 +38,9 @@ gem 'wicked'
 
 gem 'ajax-datatables-rails'
 
+gem 'caxlsx'
+gem 'caxlsx_rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row justify-content-md-center my-4">
+    <div class="card">
+      <div class="card-body">
+        <h1 class='display-6'>Reports</h1>
+        <div class="row row-deck row-cards my-4">
+            <div class="col">
+              <div class="card border-0">
+                <div class="ribbon ribbon-top bg-blue"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4"></path>
+                    <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                    <path d="M15 3v4"></path>
+                    <path d="M7 3v4"></path>
+                    <path d="M3 11h16"></path>
+                    <path d="M18 16.496v1.504l1 1"></path>
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <span>
+                    <div class="badge bg-blue">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4"></path>
+                        <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                        <path d="M15 3v4"></path>
+                        <path d="M7 3v4"></path>
+                        <path d="M3 11h16"></path>
+                        <path d="M18 16.496v1.504l1 1"></path>
+                      </svg>
+                    </div>
+                  </span>
+                  <span>
+                    <b class='h3'>Generate report </b>
+                  </span>
+                  
+                  <div class="card my-4 mb-xl-0 border-0" style="background-color:#F5FBFF ;">
+                      <div class="card-body">
+                        <div class="mt-4">
+                          <%= simple_form_for :search, local: false, url: update_report_path, method: :get do |f| %>
+                            <div class="col-sm-10 my-auto">
+                              <%= f.input :report_type, collection: ['Appointment Data', 'Appointment by type', 'Appointment by doctor'], html5: true, label: 'Report type', hint: 'Please choose the desired report type' %>
+                            </div>
+                            
+                            <div class="row">
+                              <div class="col-sm-5 my-auto">
+                                <%= f.input :start_date, as: :date, html5: true, label: 'Start date', hint: 'Please pick a start date' %>
+                              </div>
+                              
+                              <div class="col-sm-5 my-auto">
+                                <%= f.input :end_date, as: :date, html5: true, label: 'End date', hint: 'Please pick a end date' %>
+                              </div>
+                            </div>
+                            
+                            <div class="col-sm-4 my-auto">
+                              <div class="small-3 columns">
+                                <%= f.button :submit, "Generate Report", class: "btn btn-primary mt-2" %>
+                              </div>
+                            </div>
+                            
+                          <% end %>
+                        </div>
+                      <div class="col-md-12 mt-4">
+                        <%= render "reports/appointment_reports" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
