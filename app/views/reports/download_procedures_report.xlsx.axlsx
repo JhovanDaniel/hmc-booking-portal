@@ -1,0 +1,8 @@
+work_book = xlsx_package.workbook
+work_book.add_worksheet(name: "Procedures") do |sheet|
+  sheet.add_row ["Name", "Type", "Cost", "Booking limit", "Start date", "End date", "Availablility", "Created at", "No. appointments"]
+  @procedures.each do |procedure|
+    sheet.add_row [procedure.name, procedure.procedure_type, procedure.cost, procedure.booking_limit, procedure.start_date, 
+    procedure.end_date, procedure.is_available, procedure.created_at, @appointments.procedure_count(procedure.name)]
+  end
+end

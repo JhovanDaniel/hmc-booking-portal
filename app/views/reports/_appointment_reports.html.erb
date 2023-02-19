@@ -4,8 +4,12 @@
       <%= render "reports/appointment_data" %>
     <% end %>
     
-    <% if @report_type == 'Appointment by type' %>
-      <%= render "reports/appointment-by-type" %>
+    <% if @report_type == 'Procedure Data' %>
+      <%= render "reports/procedure_data" %>
+    <% end %>
+    
+    <% if @report_type == 'Payment Data' %>
+      <%= render "reports/payment_data" %>
     <% end %>
   <% end %>
 <% end %>

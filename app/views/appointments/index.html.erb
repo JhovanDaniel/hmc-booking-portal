@@ -4,7 +4,7 @@
     <div class="col col-lg-12">
       <div class="card">
         <div class="card-body">
-          <h1 class='display-6 mb-4'>All appointments</h1>
+          <%= render 'shared/page_header', pre_title: "Overview", title: 'Appointments', action: new_appointment_path, action_name: "New Appointment" %>
           
           <div class="row row-cards my-4">
             <div class="col-md-6 col-xl-3">

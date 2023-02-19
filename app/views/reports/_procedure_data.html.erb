@@ -2,10 +2,14 @@
   <div class="card-body">
     <h3><b> <%= @report_type %>  </b></h3>
     
-    <p class='my-2'> Total appointments from <%= format_date(@start_date.to_date) %> to <%= format_date(@end_date.to_date)%>: <b><%= @appointments.count %></b></p>
-    <p> <b>General:</b> <%= @appointments.type_count('General') %> | <b>Surgery:</b> <%= @appointments.type_count('Surgery') %>  |
-    <b>Test: </b> <%= @appointments.type_count('Test') %> | <b>Vaccination:</b> <%= @appointments.type_count('Vaccination') %> | 
-    <b>Specialist: </b> <%= @appointments.type_count('Specialist') %></p>
+    <p class='my-2'> Total types of procedures: <b><%= Procedure.count %></b></p>
+    <p> <b>General:</b> <%= Procedure.procedure_type_count("General") %> | <b>Surgery:</b> <%= Procedure.procedure_type_count("Surgery") %>  |
+    <b>Test: </b> <%= Procedure.procedure_type_count("Test") %> | <b>Vaccination:</b> <%= Procedure.procedure_type_count("Vaccination") %> | 
+    <b>Specialist: </b> <%= Procedure.procedure_type_count("Specialist") %></p>
+    
+    <p class='my-2'> Procedures by availability:</p>
+    <p> <b>Always available:</b> <%= Procedure.availability_count("Always_available") %> | <b>Available:</b> <%= Procedure.availability_count("Available") %>  |
+    <b>Not availabile: </b> <%= Procedure.availability_count("Not_available") %></p>
     
     <p class="mt-4"> Top appointment procedures from <%= format_date(@start_date.to_date) %> to <%= format_date(@end_date.to_date)%> </p>
     
@@ -43,7 +47,7 @@
     <% end %>
     
     <div class="mt-4">
-      <%= link_to download_appointments_report_path(format: :xlsx, start_date: @start_date, end_date: @end_date), method: :get, class:'btn btn-primary' do %>
+      <%= link_to download_procedures_report_path(format: :xlsx, start_date: @start_date, end_date: @end_date), method: :get, class:'btn btn-primary' do %>
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
          <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>

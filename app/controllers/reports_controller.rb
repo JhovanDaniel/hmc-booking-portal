@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
         @start_date = params[:search][:start_date]
         @end_date = params[:search][:end_date]
         @appointments = Appointment.active.where(:date => @start_date.to_date.beginning_of_day..@end_date.to_date.end_of_day)
+        @payments = Payment.where(:created_at => @start_date.to_date.beginning_of_day..@end_date.to_date.end_of_day)
       end
     end
     
@@ -24,14 +25,43 @@ class ReportsController < ApplicationController
   end
   
   def download_appointments_report
-      @start_date = params[:start_date]
-      @end_date = params[:end_date]
-      @appointments = Appointment.active.where(:date => @start_date.to_date.beginning_of_day..@end_date.to_date.end_of_day)
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    @appointments = Appointment.active.where(:date => @start_date.to_date.beginning_of_day..@end_date.to_date.end_of_day)
 
     respond_to do |format|
       format.html
       format.xlsx {
         render xlsx: "download_appointments_report", filename: "appointments-#{@start_date} to #{@end_date}.xlsx" 
+      }
+    end 
+  end
+  
+  def download_procedures_report
+    @procedures = Procedure.all
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    @appointments = Appointment.active.where(:date => @start_date.to_date.beginning_of_day..@end_date.to_date.end_of_day)
+
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        render xlsx: "download_procedures_report", filename: "procedures-#{@start_date} to #{@end_date}.xlsx" 
+      }
+    end 
+  end
+  
+  def download_payments_report
+    @procedures = Procedure.all
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    @appointments = Appointment.active.where(:date => @start_date.to_date.beginning_of_day..@end_date.to_date.end_of_day)
+    @payments = Payment.where(:created_at => @start_date.to_date.beginning_of_day..@end_date.to_date.end_of_day)
+
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        render xlsx: "download_payments_report", filename: "payments-#{@start_date} to #{@end_date}.xlsx" 
       }
     end 
   end

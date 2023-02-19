@@ -17,7 +17,24 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }  
+  config.hosts << "3b807202c7554c298ebd3679cf736a2f.vfs.cloud9.us-east-2.amazonaws.com"
+
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host:'https://3b807202c7554c298ebd3679cf736a2f.vfs.cloud9.us-east-2.amazonaws.com'}
+  config.action_mailer.perform_deliveries = true
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               '3b807202c7554c298ebd3679cf736a2f.vfs.cloud9.us-east-2.amazonaws.com',
+    user_name:            'hmc.testmailer@gmail.com',
+    password:             'rvaxdcrgefmwuerl',
+    authentication:       'plain',
+    enable_starttls_auto: true }
+
+  
+  
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
@@ -38,7 +55,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -68,5 +85,4 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.hosts << "3b807202c7554c298ebd3679cf736a2f.vfs.cloud9.us-east-2.amazonaws.com"
 end

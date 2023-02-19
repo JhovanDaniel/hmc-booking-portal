@@ -5,5 +5,6 @@ class Payment < ApplicationRecord
     
   def update_payment_data
     appointment.update_attribute('status', Appointment::statuses[:active])
+    AppointmentMailer.appointment_created(appointment).deliver_later
   end
 end

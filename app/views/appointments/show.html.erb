@@ -1,11 +1,10 @@
 <div class="container">
-    <div class="row justify-content-md-center mt-4">
-      <div class="col col-lg-10">
+    <div class="row justify-content-md-center my-4">
+      <div class="col col-lg-12">
         <div class="card">
-          <div class="card-header">
-            <h3 class="display-6">Appointment: <%= @appointment.appointment_number %></h3>
-          </div>
           <div class="card-body">
+            <%= render 'shared/page_header', pre_title: "Appointment", title: "#{@appointment.booked_by} - #{@appointment.appointment_number}", back_action: appointments_path %>
+            
             <h2> Patient Information </h2>
             <div class="row ">
               <div class="col-sm">  

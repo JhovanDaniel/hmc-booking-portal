@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row justify-content-md-center mt-4">
-      <div class="col col-lg-10">
+      <div class="col col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h1 class='display-6 mb-4'>Edit procedure <%=@procedure.name%></h1>
+              <%= render 'shared/page_header', pre_title: "Manage Procedure", title: "Editing #{@procedure.name}", back_action: procedures_path %>
               <%= render 'form', procedure: @procedure %>
               
               <%= link_to show_timeslots_procedure_path(@procedure), class:'btn btn-primary d-none d-sm-inline-block my-4' do %>

@@ -1,30 +1,22 @@
 <div class="container">
     <div class="row justify-content-md-center mt-4">
-      <div class="col col-lg-10">
+      <div class="col col-lg-12">
         <div class="card">
           <div class="card-body">
-            <div class="row mt-4">
-              <div class="col-auto my-auto">
-                <h1 class="display-6"> Timeslots for <%= @procedure.name %> </h1>
-              </div>
-              <div class="col-auto my-auto">
-               <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new_timeslot">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-record" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M21 12.3a9 9 0 1 0 -8.683 8.694"></path>
-                    <path d="M12 7v5l2 2"></path>
-                    <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                  </svg>
-                  Add timeslot
-                </a>
-            
-                <%= render 'procedures/modal', modal_id: "new_timeslot", timeslot: Timeslot.new %>
-                
-                
-              </div>
-            </div>
-            
-            
+            <%= render 'shared/page_header', pre_title: "Manage Procedure", title: "Timeslots for #{@procedure.name}", back_action: procedures_path %>
+
+           <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new_timeslot">
+             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-record" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M21 12.3a9 9 0 1 0 -8.683 8.694"></path>
+                <path d="M12 7v5l2 2"></path>
+                <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+              </svg>
+              Add timeslot
+            </a>
+        
+            <%= render 'procedures/modal', modal_id: "new_timeslot", timeslot: Timeslot.new %>
+
             <div class="row row-deck row-cards my-4">
               <% @procedure.timeslots.order(:day).each do |timeslot| %>
                 <div class="col-sm-6 col-lg-3">

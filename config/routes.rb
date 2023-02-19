@@ -65,6 +65,8 @@ Rails.application.routes.draw do
  get 'reports/dashboard', to: 'reports#dashboard'
  get 'update_report', to: 'reports#update_report'
  get 'download_appointments_report', to: 'reports#download_appointments_report'
+ get 'download_procedures_report', to: 'reports#download_procedures_report'
+ get 'download_payments_report', to: 'reports#download_payments_report'
  get 'gp', to: 'pages#gp'
   
 end

@@ -17,29 +17,32 @@
   </div>
 </div>
 
-<p>Please select a time from the following available dates.</p>
-
-<% @appointment.procedure.available_days.each do |w|%>
-  <% @appointment.procedure.timeslots.each do |timeslot| %>
-    <% if timeslot.day == w.strftime("%A") %>
-    <div class="card bg-light p-2 mb-2">
-    <div class="">
-      <p><b> <%= format_date2(w) %></b></p>
-      <% timeslot.time.sort.each do |t| %>
-        <% t = format_time(t.to_time) %>
-        <% if @appointment.procedure.bookable(w,t) %>
-          <%= simple_form_for(@appointment, :url => wizard_path, method: :put, html: { style: "display: inline-block" }) do |f| %>
-            <%= f.input :date, as: :hidden, input_html: { value: w } %>
-            <%= f.input :time, as: :hidden, input_html: { value: t.to_time } %>
-
-            <%= f.submit "#{t}", class: "btn btn"%>
+<% if @appointment.procedure.is_available != 'Not_available' %>
+  <p>Please select a time from the following available dates.</p>
+  <% @appointment.procedure.available_days.each do |w|%>
+    <% @appointment.procedure.timeslots.each do |timeslot| %>
+      <% if timeslot.day == w.strftime("%A") %>
+      <div class="card bg-light p-2 mb-2">
+      <div class="">
+        <p><b> <%= format_date2(w) %></b></p>
+        <% timeslot.time.sort.each do |t| %>
+          <% t = format_time(t.to_time) %>
+          <% if @appointment.procedure.bookable(w,t) %>
+            <%= simple_form_for(@appointment, :url => wizard_path, method: :put, html: { style: "display: inline-block" }) do |f| %>
+              <%= f.input :date, as: :hidden, input_html: { value: w } %>
+              <%= f.input :time, as: :hidden, input_html: { value: t.to_time } %>
+  
+              <%= f.submit "#{t}", class: "btn btn"%>
+            <% end %>
           <% end %>
         <% end %>
+      </div>
+      </div>
       <% end %>
-    </div>
-    </div>
     <% end %>
   <% end %>
+<% else %>
+  <p> This procedure is not available.</p>
 <% end %>
 
 <div class="form-actions mt-4">

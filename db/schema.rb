@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_233102) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.string "first_name"
+    t.string "first_nme"
     t.string "last_name"
     t.date "date_of_birth"
     t.string "gender"

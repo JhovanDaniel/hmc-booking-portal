@@ -1,0 +1,7 @@
+work_book = xlsx_package.workbook
+work_book.add_worksheet(name: "Payments") do |sheet|
+  sheet.add_row ["Paid on", "Name", "Appointemnt number", "Amount", "Procedure"]
+  @payments.each do |payment|
+    sheet.add_row [payment.created_at, payment.appointment.name, payment.appointment.appointment_number, payment.amount, payment.appointment.procedure.name]
+  end
+end

@@ -39,24 +39,12 @@ class Procedure < ApplicationRecord
     Appointment.active.where(date: date, time: time).count < self.booking_limit
   end
   
-  def general
-    self.procedure_type == "General"
+  def self.procedure_type_count(type)
+    self.where(procedure_type: type).count
   end
   
-  def self.vaccination
-    self.where(procedure_type: "Vaccination").first.id
-  end
-  
-  def self.test
-    self.where(procedure_type: 2).first.id
-  end
-  
-  def self.surgery
-    self.where(procedure_type: 3).first.id
-  end
-  
-  def self.specialist
-    self.where(procedure_type: 4).first.id
+  def self.availability_count(availability)
+    self.where(is_available: availability).count
   end
   
   

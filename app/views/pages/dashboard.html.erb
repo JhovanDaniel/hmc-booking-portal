@@ -1,13 +1,11 @@
 <div class="container">
     <div class="row row-deck row-cards my-4">
-      
-      
       <div class="col-lg-6">
         <div class="card p-4">
-          <h1> Appointments</h1>
+          <%= render 'shared/page_header', pre_title: "Welcome, #{current_user.first_name}", title: "Dashboard" %>
           <p  class="text-primary mt-1"><%= format_date(Date.today) %></p>
           
-          <div class="row align-items-center mt-4">
+          <div class="row align-items-center">
             <div class="col-auto">
               <span class="text-white avatar" style="background-color: #003F5D"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -36,7 +34,7 @@
           
           <div class="row row-cards">
             <div class="col-lg-6">
-              <div class="row align-items-center">
+              <div class="row">
                 <div class="col-auto">
                   <span class="text-white avatar" style="background-color: #004987"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-medicine-syrup" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

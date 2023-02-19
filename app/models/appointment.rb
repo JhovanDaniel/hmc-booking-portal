@@ -74,8 +74,22 @@ class Appointment < ApplicationRecord
       self.active.joins(:procedure).where('procedures.procedure_type.key' => type).count
     end
     
+    def self.procedure_count(procedure)
+      self.active.joins(:procedure).where('procedures.name' => procedure).count
+    end
+    
     def self.most_procedure(index)
       max = self.active.group(:procedure_id).count.max_by(index){ |obj| obj[1]}
+      max[index-1] != nil ? max[index-1].first : nil
+    end
+    
+    def self.most_procedure_total(index)
+      max = self.active.joins(:procedure).group(:procedure_id).sum(:cost).max_by(index){ |obj| obj[1]}
+      max[index-1] != nil ? max[index-1].second : nil
+    end
+    
+    def self.most_procedure_payments(index)
+      max = self.active.joins(:procedure).group(:procedure_id).sum(:cost).max_by(index){ |obj| obj[1]}
       max[index-1] != nil ? max[index-1].first : nil
     end
     

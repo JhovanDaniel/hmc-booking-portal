@@ -2,14 +2,13 @@
   <div class="card-body">
     <h3><b> <%= @report_type %>  </b></h3>
     
-    <p class='my-2'> Total appointments from <%= format_date(@start_date.to_date) %> to <%= format_date(@end_date.to_date)%>: <b><%= @appointments.count %></b></p>
-    <p> <b>General:</b> <%= @appointments.type_count('General') %> | <b>Surgery:</b> <%= @appointments.type_count('Surgery') %>  |
-    <b>Test: </b> <%= @appointments.type_count('Test') %> | <b>Vaccination:</b> <%= @appointments.type_count('Vaccination') %> | 
-    <b>Specialist: </b> <%= @appointments.type_count('Specialist') %></p>
+    <p class='my-2'> Number of payments from <%= format_date(@start_date.to_date) %> to <%= format_date(@end_date.to_date)%>: <b><%= @payments.count %></b></p>
     
+    <p class='my-2'> Total of payments from <%= format_date(@start_date.to_date) %> to <%= format_date(@end_date.to_date)%>: <b>$<%= @payments.sum(:amount) %></b></p>
+
     <p class="mt-4"> Top appointment procedures from <%= format_date(@start_date.to_date) %> to <%= format_date(@end_date.to_date)%> </p>
     
-    <% if !(Procedure.where(id: @appointments.most_procedure(1)).empty?) %>
+    <% if !(Procedure.where(id: @appointments.most_procedure_payments(1)).empty?) %>
       <p><span>
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-number-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -17,10 +16,10 @@
           <path d="M10 10l2 -2v8"></path>
         </svg>
       </span>
-      <span> <%= Procedure.find(@appointments.most_procedure(1)).name %> - <%= @appointments.where(procedure_id: @appointments.most_procedure(1)).count %> Appointments</span></p>
+      <span> <%= Procedure.find(@appointments.most_procedure_payments(1)).name %> - <b>$<%= @appointments.most_procedure_total(1) %> </b></span></p>
     <% end %>
     
-    <% if !(Procedure.where(id: @appointments.most_procedure(2)).empty?) %>
+    <% if !(Procedure.where(id: @appointments.most_procedure_payments(2)).empty?) %>
       <p><span>
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-number-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -28,10 +27,10 @@
           <path d="M10 8h3a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 0 -1 1v2a1 1 0 0 0 1 1h3"></path>
         </svg>
       </span>
-      <span> <%= Procedure.find(@appointments.most_procedure(2)).name %> - <%= @appointments.where(procedure_id: @appointments.most_procedure(2)).count %> Appointments</p>
+      <span> <%= Procedure.find(@appointments.most_procedure_payments(2)).name %> - <b>$<%= @appointments.most_procedure_total(2) %> </b></span></p>
     <% end %>
     
-    <% if !(Procedure.where(id: @appointments.most_procedure(3)).empty?) %>
+    <% if !(Procedure.where(id: @appointments.most_procedure_payments(3)).empty?) %>
       <p><span>
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-number-3" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -39,11 +38,11 @@
            <path d="M10 9a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1"></path>
         </svg>
       </span>
-      <span> <%= Procedure.find(@appointments.most_procedure(3)).name %> - <%= @appointments.where(procedure_id: @appointments.most_procedure(3)).count %> Appointments</span></p>
+      <span> <%= Procedure.find(@appointments.most_procedure_payments(3)).name %> - <b>$<%= @appointments.most_procedure_total(3) %> </b></span></p>
     <% end %>
     
     <div class="mt-4">
-      <%= link_to download_appointments_report_path(format: :xlsx, start_date: @start_date, end_date: @end_date), method: :get, class:'btn btn-primary' do %>
+      <%= link_to download_payments_report_path(format: :xlsx, start_date: @start_date, end_date: @end_date), method: :get, class:'btn btn-primary' do %>
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
          <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>

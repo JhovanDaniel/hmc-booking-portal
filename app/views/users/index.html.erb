@@ -3,7 +3,7 @@
       <div class="col col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h1 class='display-6 mb-4'>All Users</h1>
+            <%= render 'shared/page_header', pre_title: "Overview", title: 'Users' %>
           </div>
           <div class="table-responsive">
             <table id="user-datatable" class="table table-vcenter card-table table-striped text-nowrap center" data-source="<%= datatable_users_path(format: :json) %>" style='width:100%;'>

@@ -10,8 +10,8 @@
     <%= f.input :details %>
     <%= f.input :cost %>
     <%= f.input :booking_limit%>
-    <%= f.input :start_date, as: :date %>
-    <%= f.input :end_date, as: :date %>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
     <%= f.input :is_available, :collection   => Procedure.is_availables.keys %>
   </div>
 

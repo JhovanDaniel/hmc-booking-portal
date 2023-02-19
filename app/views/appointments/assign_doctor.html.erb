@@ -1,17 +1,23 @@
 <div class="container">
   <div class="row justify-content-md-center my-4">
-    <div class="col col-lg-10">
-      <%= simple_form_for(@appointment) do |f| %>
-      
-        <h3>Assign doctor</h3>
-        <div class="form-inputs">
-          <%= f.input :user_id, collection: User.doctors  %>
+    <div class="col col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <%= render 'shared/page_header', pre_title: "Manage Appointment", title: "Assigning doctor", back_action: appointments_path %>
+    
+          <%= simple_form_for(@appointment) do |f| %>
+          
+            <h3>Assign doctor</h3>
+            <div class="form-inputs">
+              <%= f.input :user_id, collection: User.doctors  %>
+            </div>
+          
+            <div class="form-actions mt-2">
+              <%= f.button :submit %>
+            </div>
+          <% end %>
         </div>
-      
-        <div class="form-actions mt-2">
-          <%= f.button :submit %>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
